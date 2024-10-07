@@ -1,0 +1,72 @@
+export {default as img} from "../images/scrap.png";
+export const name = "Scrap is the way";
+export const date = new Date(2023, 8, 4);
+export const description = "Scrap is a tool that simplifies the transition from block-based programming to JavaScript.";
+
+### Empowering the Transition: The Story of Scrap
+
+My coding journey began with [Scratch](https://scratch.mit.edu/), an intuitive platform that introduced me to the world
+of programming. Yet, as I ventured into JavaScript, I faced a formidable challenge. While Scratch had provided a solid
+foundation, the transition to JavaScript felt like a daunting leap. This challenge ignited the idea for **Scrap**, a
+tool designed to simplify the transition from block-based programming to JavaScript.
+
+<a className="button" href="https://scrap.tomaswrobel.dev">
+	Run Scrap
+</a>
+
+#### Features
+
+1. **Block-based coding** &ndash; While Scrap encourages transition to text-based programming, it supports both block an
+   text editors.
+2. **Type-safe** &ndash; In text editor, Scrap supports JSDoc type annotations, which are used to provide type safety.
+   In block editor, Scrap won't allow you to connect blocks with incompatible types.
+3. **Blocks &#x21c6; Code** &ndash; Scrap allows you to convert blocks to code and vice versa. This feature is
+   especially useful for learning JavaScript syntax.
+4. **No VM, no interpreter** &ndash; Scrap compiles your code to JavaScript, which means that you can run it anywhere,
+   without Scrap.
+5. **HTML output** &ndash; Scrap allows you to export your code as HTML, which means that you can share your projects
+   with anyone, anywhere.
+6. **Open-source** &ndash; Scrap is open-source, which means that you can contribute to it and make it better.
+
+#### The Future
+
+Scrap is still in its infancy, but I have big plans for it. I want to make Scrap a tool that will help anyone learn
+JavaScript, regardless of their age or experience. You can track my progress on
+[GitHub](https://github.com/tomaswrobel/scrap).
+
+### The inspiration
+
+The name Scrap is a combination of the words [Scratch](https://scratch.mit.edu/) and [Snap](https://snap.berkeley.edu/),
+two block-based programming languages that inspired me to create Scrap. Snap gave me an idea to make the IDE advanced
+and powerful, while Scratch inspired me to make it intuitive and easy to use.
+
+### The technology
+
+Scrap is built with vanilla [TypeScript](https://www.typescriptlang.org/) and is hosted on
+[GitHub Pages](https://pages.github.com/).
+
+It uses [Blockly](https://developers.google.com/blockly) as a block editor. I still look for a good text editor, which
+is simple, yet powerful. Meanwhile, I have created a simple text editor with [highlight.js](https://highlightjs.org/)
+and `<textarea>` element.
+
+Scrap uses technology based on [BlockLike.js](https://blocklike.org) as an engine (not VM).
+
+Scrap output uses [JSDoc](https://jsdoc.app/) for type annotations and is compiled by [Babel](https://babeljs.io/).
+
+### Why Babel?
+
+Babel is used to walk through the AST and:
+
+1. Make JavaScript code asynchronous.
+2. Convert code into blocks.
+
+BlockLike.js includes a rewriter that adds `async`/`await` keywords to the code, but it relies on RegEx, which isn't
+ideal. Additionally, it lacks support for nested blocks.
+
+To address these issues, I forked BlockLike.js and developed
+[Scrap Engine](https://github.com/tomaswrobel/scrap-engine). Scrap Engine eliminates the rewriter, making it necessary
+to manually add `async`/`await` keywords. This is where **Babel** comes into play, as it compiles the code and inserts
+the required keywords.
+
+Why just not let users add `async`/`await` keywords manually? Because it's not intuitive. Some methods are asynchronous,
+while others are synchronous. Scrap is designed to be intuitive and easy to use, so it should handle this for the user.

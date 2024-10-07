@@ -1,0 +1,55 @@
+export {default as img} from "../images/npm-playground.png";
+export const name = "NPM Playground is out!";
+export const date = new Date(2023, 5, 23);
+export const description =
+	"NPM Playground is a tool for developers who want to quickly test code online. It supports NPM packages, multiple files, and much more.";
+
+There are many <q>code playgrounds</q> on the internet, but very few of them support NPM packages. And if they do, they
+are either paid or huge. That's why I decided to create NPM Playground.
+
+<a className="button" href="https://npm-playground.web.app">
+	Launch NPM Playground
+</a>
+
+## NPM Package Support
+
+You can import NPM packages using `import`, but not `require`.
+
+```js
+import $ from "jquery";
+
+$("body").css("background-color", "#FF0");
+```
+
+## Multiple File Support
+
+NPM Playground supports multiple files that can be linked using ECMAScript `import` / `export`. But be careful &ndash;
+you must exclude these extensions:
+
+-   .js
+-   .jsx
+-   .ts
+-   .tsx
+
+So if there is a file called `counter.tsx`, the import must be `"./counter"`:
+
+index.tsx
+
+```tsx
+import Counter from "./counter";
+
+/// ....
+```
+
+counter.jsx
+
+```jsx
+export default function Counter({count}) {
+	return <h1>Counter: {count}</h1>;
+}
+```
+
+## Archivace projektu
+
+Project was archived in favor of [PlayGist](playgist.mdx). That means it won't receive updates, but it will still be
+available on [GitHub](https://github.com/tomaswrobel/npm-playgound).

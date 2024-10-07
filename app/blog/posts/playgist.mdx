@@ -1,0 +1,34 @@
+export {default as img} from "../images/playgist.png";
+export const name = "Evolution of NPM Playground: PlayGist";
+export const date = new Date(2023, 9, 23);
+export const description =
+	"PlayGist is a web-based code editor that replaces the existing NPM Playground. It allows you to create and run projects directly in the browser without the need for cloud storage. And if you want to save your work, you can easily export it to a GitHub Gist, from which the code can be run again.";
+
+PlayGist is a web-based code editor that replaces the existing [NPM Playground](npm-playground.mdx). It allows you to
+create and run projects directly in the browser without the need for cloud storage. And if you want to save your work,
+you can easily export it to a GitHub Gist, from which the code can be run again.
+
+### What's new?
+
+-   **Evolution from "NPM Playground":** PlayGist is similar to its predecessor, "NPM Playground". However, it brings
+    significant improvements by removing the cloud storage limitations that hindered its predecessor. With PlayGist, you
+    can code without worrying about storage limits, giving you the freedom to create and run your Front-End projects
+    efficiently.
+-   **Reprogrammed design:** The user interface may seem familiar, but it's not just a simple facelift. PlayGist has
+    undergone a complete reprogramming, transitioning from the Lit framework to Next.js. This transformation ensures a
+    more robust and smoother experience, offering you a powerful development environment directly in your browser.
+-   **GitHub API Rate Limit:** It's important to note that PlayGist operates within the limits of the GitHub API.
+    However, we have a solution for you. Simply log in to your GitHub account, and you can bypass these limitations and
+    utilize the full potential of PlayGist.
+
+### Key features
+
+-   **Flexible file creation:** You can easily create JavaScript (JS), JSX, TypeScript (TS), and TypeScript JSX (TSX)
+    files directly in PlayGist. Although you cannot create folders due to our integration with GitHub Gists, you can
+    import these files without any issues. Just remember to keep the file extension when importing (e.g.,
+    `import "./component-a.tsx"`).
+-   **ES modules and Top-Level Await:** PlayGist supports modern development practices. You must use ES modules, and we
+    fully support top-level `await`. This ensures that your code remains up-to-date and ready for the latest web
+    standards.
+-   **NPM package support: Bare Specifiers:** Take advantage of NPM packages compatible with browsers. PlayGist allows
+    you to use bare specifiers for these packages, which will be automatically resolved from a Content Delivery Network.

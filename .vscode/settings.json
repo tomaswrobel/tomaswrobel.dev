@@ -1,0 +1,24 @@
+{
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"prettier.arrowParens": "avoid",
+	"prettier.bracketSpacing": false,
+	"prettier.useTabs": true,
+	"prettier.tabWidth": 4,
+	"editor.insertSpaces": false,
+	"editor.detectIndentation": false,
+	"[yaml]": {
+		"editor.insertSpaces": true,
+		"prettier.tabWidth": 2,
+		"prettier.useTabs": false,
+		"editor.autoIndent": "advanced",
+	},
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"[mdx]": {
+		"prettier.proseWrap": "always",
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"files.associations": {
+		"README": "markdown",
+		"LICENSE": "markdown"
+	}
+}
