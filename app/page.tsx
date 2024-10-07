@@ -6,7 +6,7 @@ import data from "blog/data";
 import Form from "components/ngl";
 import {Section} from "components/section";
 import TypingAnimation from "components/typing-animation";
-import Icon from "components/icon";
+import Icon from "components/fa-icon";
 import CertificatesSwiper from "certificates/swiper";
 import Skill from "components/skill";
 import Image from "next/image";

@@ -4,7 +4,7 @@ import Link from "next/link";
 import {usePathname, useRouter} from "next/navigation";
 import {DynamicMenu, StaticMenu} from "components/menu";
 import {type FunctionComponent, useEffect, useRef, useState} from "react";
-import Icon from "./icon";
+import Icon from "./fa-icon";
 
 const switchColorScheme = () => {
 	const {dataset} = document.documentElement;
