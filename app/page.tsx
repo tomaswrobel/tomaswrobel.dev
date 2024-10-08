@@ -26,7 +26,7 @@ const HomePage: FunctionComponent = async () => (
 					<div className="row full-screen align-items-center">
 						<div className="col-lg-6">
 							<div className="type-box">
-								<h6>Hello, I am</h6>
+								<span>Hello, I am</span>
 								<h1>Tomáš Wróbel</h1>
 								<p className="lead">
 									I am passionate{" "}
@@ -97,7 +97,7 @@ const HomePage: FunctionComponent = async () => (
 					<div className="feature-box media">
 						<i className="icon theme-bg icon-mobile" />
 						<div className="feature-content media-body">
-							<h5>Responsive design</h5>
+							<h4>Responsive design</h4>
 							<p>
 								Websites I create work on all devices, so you can increase the number of potential
 								customers
@@ -109,7 +109,7 @@ const HomePage: FunctionComponent = async () => (
 					<div className="feature-box media">
 						<i className="icon theme-bg icon-global" />
 						<div className="feature-content media-body">
-							<h5>Web app development</h5>
+							<h4>Web app development</h4>
 							<p>
 								I create web apps with modern technologies. They are fast and work offline. However, I
 								can target old browsers too.
@@ -121,7 +121,7 @@ const HomePage: FunctionComponent = async () => (
 					<div className="feature-box media">
 						<i className="icon theme-bg  icon-genius" />
 						<div className="feature-content media-body">
-							<h5>React.js</h5>
+							<h4>React.js</h4>
 							<p>
 								Many companies use React. I know it very well and this website is built on Next.js. I
 								can also help you with Ionic, or whichever framework you prefer.
@@ -133,7 +133,7 @@ const HomePage: FunctionComponent = async () => (
 					<div className="feature-box media">
 						<i className="icon theme-bg icon-lock" />
 						<div className="feature-content media-body">
-							<h5>Security</h5>
+							<h4>Security</h4>
 							<p>
 								These days, SSL certificate is a must. I can install it for you. I also know how to
 								protect your databases, e. g. if you launched an online store.
@@ -145,7 +145,7 @@ const HomePage: FunctionComponent = async () => (
 					<div className="feature-box media">
 						<i className="icon theme-bg icon-target" />
 						<div className="feature-content media-body">
-							<h5>Search engine optimization</h5>
+							<h4>Search engine optimization</h4>
 							<p>
 								SEO is important. I am not an expert, but I can handle my part as a web developer. I can
 								handle Google Analytics and Search Console as well.
@@ -157,7 +157,7 @@ const HomePage: FunctionComponent = async () => (
 					<div className="feature-box media">
 						<i className="icon theme-bg icon-speedometer" />
 						<div className="feature-content media-body">
-							<h5>Fast</h5>
+							<h4>Fast</h4>
 							<p>
 								Websites I create are fast, optimized and compatible. This is also the case with my web
 								apps. I can also help you with Google PageSpeed Insights.
@@ -174,14 +174,14 @@ const HomePage: FunctionComponent = async () => (
 						<div className="blog-grid">
 							<div className="blog-img">
 								<Link href={blog.url}>
-									<Image src={blog.img} title="" alt="" loading="lazy" placeholder="blur" />
+									<Image src={blog.img} title={blog.name} alt="" loading="lazy" placeholder="blur" />
 								</Link>
 							</div>
 							<div className="blog-info">
 								<div className="meta">{formatter.format(blog.date)}</div>
-								<h6>
+								<h4>
 									<Link href={blog.url}>{blog.name}</Link>
-								</h6>
+								</h4>
 							</div>
 						</div>
 					</div>

@@ -2,7 +2,7 @@ import type {FunctionComponent} from "react";
 
 const Skill: FunctionComponent<Skill.Props> = ({name, level}) => (
 	<div className="skill-lt">
-		<h6>{name}</h6>
+		<h4>{name}</h4>
 		<div className="skill-bar">
 			<div className="skill-bar-in" style={{width: level}}>
 				<span title={level} />

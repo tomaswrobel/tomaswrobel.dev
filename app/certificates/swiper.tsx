@@ -1,7 +1,7 @@
 "use client";
 import type {FunctionComponent} from "react";
 import {Swiper, SwiperSlide} from "swiper/react";
-import {Autoplay, Pagination} from "swiper/modules";
+import {A11y, Autoplay, Pagination} from "swiper/modules";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -15,7 +15,8 @@ import ReactRedux from "./images/react-redux.png";
 const CertificatesSwiper: FunctionComponent = () => (
 	<>
 		<Swiper
-			modules={[Autoplay, Pagination]}
+			modules={[Autoplay, Pagination, A11y]}
+			a11y={{enabled: true}}
 			autoplay={{delay: 5000}}
 			pagination={{clickable: true, el: ".swiper-dots"}}
 			spaceBetween={25}
@@ -49,10 +50,7 @@ const CertificatesSwiper: FunctionComponent = () => (
 			</SwiperSlide>
 			<SwiperSlide className="document d-flex align-items-center">
 				<div className="text-center">
-					<h2>This is how I learn</h2>
-					<p className="w-50 mx-auto mb-2">
-						While I learnt the basics from books, I have been learning advanced topics from online courses.
-					</p>
+					<h2 className="mb-2">This is how I learn</h2>
 					<Link className="button" href="/certificates">
 						See all certificates
 					</Link>

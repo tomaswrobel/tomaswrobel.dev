@@ -72,7 +72,7 @@ const Header: FunctionComponent<Header.Props> = () => {
 						<div>
 							<img src="/images/me.png" title="" alt="" />
 						</div>
-						<h5>Tomáš W.</h5>
+						<h2>Tomáš W.</h2>
 					</div>
 					{pathname === "/" ? (
 						<DynamicMenu />

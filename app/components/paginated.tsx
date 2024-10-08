@@ -16,7 +16,7 @@ const Paginated: FunctionComponent<Paginated.Props> = ({data, sort = 4, heading}
 		<div className="blog-listing">
 			<div className="container">
 				<div className="title text-center">
-					<h3>{heading}</h3>
+					<h1>{heading}</h1>
 				</div>
 				<div className="row">
 					{data.slice((active - 1) * sort, active * sort).map(({author, date, id, img, name, url}) => (
@@ -33,9 +33,9 @@ const Paginated: FunctionComponent<Paginated.Props> = ({data, sort = 4, heading}
 										{" | "}
 										{author}
 									</div>
-									<h6>
+									<h4>
 										<Link href={url}>{name}</Link>
-									</h6>
+									</h4>
 								</div>
 							</div>
 						</div>

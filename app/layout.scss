@@ -193,7 +193,7 @@ header {
 			border-radius: 50%;
 		}
 
-		> h5 {
+		> h2 {
 			@extend %color;
 			margin: 15px 0 0;
 			font-weight: 300;
@@ -407,7 +407,7 @@ header {
 			font-size: 12px;
 		}
 
-		h6 {
+		h4 {
 			font-size: 24px;
 			font-weight: 500;
 			padding-top: 10px;
@@ -569,7 +569,7 @@ article {
 	.article-title {
 		padding: 15px 0 20px;
 
-		h6 {
+		h4 {
 			font-size: 14px;
 			font-weight: 700;
 			margin-bottom: 20px;
@@ -761,7 +761,7 @@ section {
 		margin-bottom: 1.5rem;
 	}
 
-	> h3 {
+	h1, h2, h3 {
 		@extend %color;
 		margin: 0;
 		position: relative;
@@ -890,7 +890,7 @@ section {
 		padding-top: 40px;
 		padding-bottom: 40px;
 
-		h6 {
+		> span:first-child {
 			@extend %color;
 			font-size: 25px;
 			font-weight: 500;
@@ -1102,7 +1102,7 @@ section {
 		}
 	}
 
-	h5 {
+	h4 {
 		margin-bottom: 15px;
 	}
 
@@ -1157,7 +1157,7 @@ section {
 		}
 	}
 
-	h6 {
+	h4 {
 		margin: 0 0 5px;
 		@extend %color;
 	}
@@ -1198,7 +1198,7 @@ input[name="mobile"] {
 		}
 	}
 
-	h6 {
+	h4 {
 		@extend %color;
 		font-weight: 500;
 		font-size: 20px;
@@ -1227,7 +1227,7 @@ input[name="mobile"] {
 		}
 	}
 
-	h6 {
+	h4 {
 		margin-bottom: 5px;
 
 		@include media-breakpoint-down(sm) {
@@ -1326,7 +1326,7 @@ input[name="mobile"] {
 		margin-top: 25px;
 	}
 
-	h6 {
+	h4 {
 		font-size: 14px;
 		margin: 0 0 10px;
 		font-weight: 400;
