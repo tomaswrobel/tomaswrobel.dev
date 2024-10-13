@@ -5,12 +5,12 @@ import {A11y, Autoplay, Pagination} from "swiper/modules";
 import Image from "next/image";
 import Link from "next/link";
 
-import JavaScript from "./images/javascript-advanced.png";
-import HTML from "./images/html.png";
-import CSS from "./images/css.png";
-import Rust from "./images/rust.png";
-import Flutter from "./images/flutter.png";
-import ReactRedux from "./images/react-redux.png";
+import JavaScript from "certificates/images/javascript-advanced.png";
+import HTML from "certificates/images/html.png";
+import CSS from "certificates/images/css.png";
+import Rust from "certificates/images/rust.png";
+import Flutter from "certificates/images/flutter.png";
+import ReactRedux from "certificates/images/react-redux.png";
 
 const CertificatesSwiper: FunctionComponent = () => (
 	<>
