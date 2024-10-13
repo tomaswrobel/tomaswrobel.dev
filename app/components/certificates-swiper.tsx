@@ -48,8 +48,8 @@ const CertificatesSwiper: FunctionComponent = () => (
 			<SwiperSlide className="document">
 				<Image src={ReactRedux} alt="React Certificate" loading="lazy" fill placeholder="blur" />
 			</SwiperSlide>
-			<SwiperSlide className="document d-flex align-items-center">
-				<div className="text-center">
+			<SwiperSlide className="document d-flex align-items-center justify-content-center">
+				<div>
 					<h2 className="mb-2">This is how I learn</h2>
 					<Link className="button" href="/certificates">
 						See all certificates
