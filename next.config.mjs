@@ -1,8 +1,8 @@
-import rehypeHighlight from 'rehype-highlight';
-import withMDX from '@next/mdx';
+import rehypeHighlight from "rehype-highlight";
+import withMDX from "@next/mdx";
 
 export default withMDX({
-    options: {
-        rehypePlugins: [rehypeHighlight],
-    },
+	options: {
+		rehypePlugins: [rehypeHighlight],
+	},
 })();

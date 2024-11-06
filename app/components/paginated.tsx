@@ -23,7 +23,7 @@ const Paginated: FunctionComponent<Paginated.Props> = ({data, sort = 4, heading}
 						<div className="col-md-6 mt-1 pb-1 blog-list-item" key={id}>
 							<div className="blog-grid">
 								<div className="blog-img">
-									<Link href={url}>
+									<Link href={url} aria-label={name}>
 										<Image loading="lazy" placeholder="blur" src={img} title="" alt="" />
 									</Link>
 								</div>

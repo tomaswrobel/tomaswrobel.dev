@@ -24,7 +24,7 @@ export const Section: FunctionComponent<Section.Props> = ({id, children}) => {
 			<section id={section[2]}>
 				<div className="container">
 					<div className="title">
-						<h3>{section[1]}</h3>
+						<h2>{section[1]}</h2>
 					</div>
 					{children}
 				</div>

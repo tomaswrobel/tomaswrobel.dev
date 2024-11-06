@@ -2,7 +2,7 @@
 	$primary: #2fbf71,
 	$line-height-lg: 1.7,
 	$line-height-sm: 1.7,
-	$dark: hsl(240, 27%, 6%),
+	$dark: #0b0b13,
 	// Buttons
 	$btn-border-radius: 0px,
 	$btn-padding-x: 25px,
@@ -132,14 +132,22 @@ hr {
 
 .button {
 	@extend .btn, .btn-primary;
-
 	font-size: 14px;
 	letter-spacing: 2px;
-	box-shadow: 4px 4px currentColor !important;
 
 	&:hover {
-		background: $white;
 		color: $primary;
+	}
+
+	@each $theme, $color in (light: $dark, dark: $white) {
+		@include theme($theme) {
+			box-shadow: 4px 4px $color;
+
+			&:hover {
+				background: $color;
+				box-shadow: 4px 4px $primary;
+			}
+		}
 	}
 }
 
@@ -761,7 +769,9 @@ section {
 		margin-bottom: 1.5rem;
 	}
 
-	h1, h2, h3 {
+	h1,
+	h2,
+	h3 {
 		@extend %color;
 		margin: 0;
 		position: relative;

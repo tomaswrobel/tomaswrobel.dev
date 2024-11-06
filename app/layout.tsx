@@ -1,5 +1,5 @@
 import type {FunctionComponent, PropsWithChildren} from "react";
-import {Rubik, Merriweather} from "next/font/google";
+import local from "next/font/local";
 import Header from "components/header";
 
 import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
@@ -8,22 +8,23 @@ import "@fortawesome/fontawesome-free/scss/solid.scss";
 import "et-line/style.css";
 import "./layout.scss";
 
-const rubik = Rubik({
-	fallback: ["Arial", "sans-serif"],
-	subsets: ["latin-ext"],
+const rubik = local({
+	src: [
+		{
+			path: "fonts/Rubik-Italic-VariableFont_wght.ttf",
+			style: "italic",
+		},
+		{
+			path: "fonts/Rubik-VariableFont_wght.ttf",
+			style: "normal",
+		},
+	],
 	display: "swap",
-});
-
-const merriweather = Merriweather({
-	fallback: ["'Times New Roman'", "serif"],
-	subsets: ["latin-ext"],
-
-	variable: "--font-law",
-	weight: "400",
+	fallback: ["Arial", "sans-serif"],
 });
 
 const RootLayout: FunctionComponent<PropsWithChildren> = ({children}) => (
-	<html lang="en" className={merriweather.variable}>
+	<html lang="en">
 		<body className={rubik.className}>
 			<Header />
 			<main>{children}</main>
