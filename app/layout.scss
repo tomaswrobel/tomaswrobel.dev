@@ -1432,7 +1432,7 @@ input[name="mobile"] {
 		margin-bottom: 20px;
 	}
 
-	textarea {
+	.form-control {
 		border-radius: 0;
 		box-shadow: none;
 		font-size: 14px;
@@ -1445,7 +1445,7 @@ input[name="mobile"] {
 		@include theme(true, false) using ($is-dark) {
 			@if $is-dark {
 				color: $white;
-				background: none;
+				background: $dark;
 				border: 1px solid color.change($white, $alpha: 0.3);
 			} @else {
 				color: $dark;
