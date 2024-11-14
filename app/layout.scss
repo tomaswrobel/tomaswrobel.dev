@@ -144,7 +144,7 @@ hr {
 		color: $primary;
 	}
 
-	@include theme($dark, $white) using ($color) {
+	@include theme($white, $dark) using ($color) {
 		box-shadow: 4px 4px $color;
 
 		&:hover {
