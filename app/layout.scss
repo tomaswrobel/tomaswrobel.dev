@@ -689,7 +689,10 @@ article {
 	z-index: 111111;
 	cursor: pointer;
 
-	@extend %background;
+	@include theme(true, false) using ($is-dark) {
+		background: if($is-dark, $white, $dark);
+		color: if($is-dark, $dark, $white);
+	}
 
 	@include media-breakpoint-down(lg) {
 		top: 71px;

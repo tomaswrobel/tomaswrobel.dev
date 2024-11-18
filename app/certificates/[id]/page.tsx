@@ -1,4 +1,3 @@
-import Table from "components/table";
 import "highlight.js/scss/monokai-sublime.scss";
 import type {Metadata} from "next";
 import Image from "next/image";
@@ -33,11 +32,11 @@ export async function generateMetadata({params}: Props) {
 
 export default async function Certificates({params: {id}}: Props) {
 	const {data} = await import("../data");
-	const brands = await import("components/brands");
 	const img = await import(`../images/${id}.png`);
 	const certificate = data.find(s => s.id === id)!;
-	const Brand = brands[certificate.author];
-
+	
+	const Brand = (await import("components/brands"))[certificate.author];
+	
 	return (
 		<div className="single-blog">
 			<div className="container">

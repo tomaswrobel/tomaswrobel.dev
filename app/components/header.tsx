@@ -6,7 +6,7 @@ import {DynamicMenu, StaticMenu} from "components/menu";
 import {type FunctionComponent, useEffect, useRef, useState} from "react";
 import Icon from "./fa-icon";
 
-const switchColorScheme = () => {
+function switchColorScheme() {
 	const {dataset} = document.documentElement;
 
 	if (dataset.theme === "dark") {
