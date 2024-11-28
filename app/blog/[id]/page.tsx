@@ -25,6 +25,17 @@ export async function generateMetadata({params}: Props) {
 	const metadata: Metadata = {
 		title: `Tomáš Wróbel | ${json.name}`,
 		description: json.description,
+		openGraph: {
+			type: "article",
+			images: json.img,
+			publishedTime: json.date.toISOString(),
+			authors: ["Tomáš Wróbel"],
+			description: json.description,
+			url: `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}/blog/${params.id}`
+		},
+		twitter: {
+			images: json.img,
+		}
 	};
 
 	return metadata;

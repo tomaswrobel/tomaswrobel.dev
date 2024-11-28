@@ -262,10 +262,8 @@ header {
 				}
 
 				&:hover {
-					@include media-breakpoint-up(sm) {
-						@include theme($dark, $primary) using ($color) {
-							color: $color;
-						}
+					@include theme($white, $primary) using ($color) {
+						color: $color;
 					}
 				}
 

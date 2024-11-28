@@ -9,7 +9,7 @@ export async function POST(request: NextRequest) {
 			...data,
             deviceId: crypto.randomUUID(),
             username: process.env.NGL_USERNAME!,
-            referrer: `https://${process.env.VERCEL_URL}`,
+            referrer: `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`,
         })
     });
 }
