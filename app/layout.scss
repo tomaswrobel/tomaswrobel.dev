@@ -864,9 +864,35 @@ section {
 		padding-bottom: 100px;
 	}
 
-	.hb-img img {
-		border-radius: 100%;
-		background: $primary;
+	svg {
+		transform: scale(0.9);
+
+		$fills: (
+			#6b3a1a,
+			#b0926a,
+			#cab291,
+			#e3cdad,
+			#6e3f14,
+			#3d1f0b,
+			#f5e2c9,
+			#281407,
+			#bda17b,
+			#6b615a,
+			#918881,
+			#3c3c3b,
+			#592d10,
+			#e97a6e,
+			#f29288,
+			#cc6256,
+			#4a240b,
+			color.change($white, $alpha: 0.1),
+		);
+
+		@for $i from 1 through length($fills) {
+			.fill-#{$i} {
+				fill: nth($fills, $i);
+			}
+		}
 	}
 
 	.type-box {

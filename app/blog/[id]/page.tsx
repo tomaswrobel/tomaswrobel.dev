@@ -57,7 +57,7 @@ export default async function Blog({params}: Props) {
 								<h2>{post.name}</h2>
 								<div className="media">
 									<div className="avatar rounded-circle">
-										<img src="/images/me.png" title="" alt="" />
+										<img src="/images/me.jpeg" title="" alt="" />
 									</div>
 									<div className="media-body">
 										<label>Tomáš Wróbel</label>
