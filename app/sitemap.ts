@@ -1,11 +1,12 @@
 import type {MetadataRoute} from "next";
-import data from "blog/data";
+import {data} from "components/blog";
 
 type Sitemaps = Promise<MetadataRoute.Sitemap>;
 type Sitemap = MetadataRoute.Sitemap[number];
 
 export default async function sitemap(): Sitemaps {
-	const blog = await data();
+	const blog = await data("blog");
+	const certificates = await data("certificates");
 
 	return [
 		{
@@ -26,13 +27,17 @@ export default async function sitemap(): Sitemaps {
 			changeFrequency: "monthly",
 			priority: 0.8,
 		},
-		...blog.map<Sitemap>(
-			post => ({
-				lastModified: post.date,
-				url: `https://tomaswrobel.dev/blog/${post.id}`,
-				changeFrequency: "never",
-				priority: 0.5
-			})
-		),
+		...blog.map<Sitemap>(post => ({
+			lastModified: post.date,
+			url: `https://tomaswrobel.dev/blog/${post.id}`,
+			changeFrequency: "never",
+			priority: 0.5,
+		})),
+		...certificates.map<Sitemap>(post => ({
+			lastModified: post.date,
+			url: `https://tomaswrobel.dev/certificates/${post.id}`,
+			changeFrequency: "never",
+			priority: 0.5,
+		})),
 	];
 }

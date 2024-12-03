@@ -1,13 +1,12 @@
 import type {Metadata} from "next";
-
-import data from "./data";
-import Paginated from "components/paginated";
+import BlogListing from "components/blog-listing";
+import {data} from "components/blog";
 
 export const metadata: Metadata = {
 	title: "Tomáš Wróbel | Blog",
-	description: "Blog about web development, programming, and other interesting topics."
+	description: "Blog about web development, programming, and other interesting topics.",
 };
 
 export default async function Blog() {
-	return <Paginated data={await data()} heading="Blog" />;
+	return <BlogListing data={await data("blog")} heading="Blog" />;
 }

@@ -2,7 +2,6 @@ import type {Metadata} from "next";
 import type {FunctionComponent} from "react";
 
 import Link from "next/link";
-import data from "blog/data";
 import Form from "components/ngl";
 import {Section} from "components/section";
 import TypingAnimation from "components/typing-animation";
@@ -11,6 +10,7 @@ import Icon from "components/fa-icon";
 import Skill from "components/skill";
 import Image from "next/image";
 import {formatter} from "utils";
+import {data} from "components/blog";
 
 export const metadata: Metadata = {
 	title: "Tomáš Wróbel | Home",
@@ -44,7 +44,7 @@ const HomePage: FunctionComponent = async () => (
 							</div>
 						</div>
 						<div className="col-6 d-none d-lg-block">
-							<svg viewBox="0 0 490 600">
+							<svg viewBox="0 0 490 510" className="bg-primary rounded">
 								<path
 									d="M446.1 10.8C442 16.5 438 22.4 434 28.3c-4 5.7-8.3 11.4-12.5 17-8.6 11.3-35 39-50 48.8-6.2 4-12.1 8.8-18.3 13-12 8.1-25.1 14.8-37 23a110.7 110.7 0 0 0-17 15.2c-14 19.7-11.8 31.5-11.8 31.5s97.3-88.9 104.3-95c10.6-9.4 20-20 28.7-31.2a534.8 534.8 0 0 0 24.3-34.7l2.8-4.4c.5-.8-.7-1.5-1.3-.7z"
 									className="fill-1"
@@ -454,7 +454,7 @@ const HomePage: FunctionComponent = async () => (
 		</Section>
 		<Section id="pages.blog">
 			<div className="row">
-				{(await data()).slice(0, 4).map(blog => (
+				{(await data("blog")).slice(0, 4).map(blog => (
 					<div className="col-md-6 mt-1 pb-1" key={blog.id}>
 						<div className="blog-grid">
 							<div className="blog-img">
