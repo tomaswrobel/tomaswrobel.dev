@@ -2,7 +2,7 @@
 import clsx from "clsx";
 import Link from "next/link";
 import Image from "next/image";
-import {FunctionComponent, useMemo, useState} from "react";
+import {FunctionComponent, useEffect, useMemo, useState} from "react";
 import {formatter} from "utils";
 import {Data} from "./blog";
 
@@ -12,6 +12,16 @@ export const BlogListing: FunctionComponent<BlogListing.Props> = ({data, sort = 
 		() => Array.from({length: Math.ceil(data.length / sort)}).map((_, idx) => idx + 1),
 		[sort, data.length]
 	);
+
+	useEffect(() => {
+		const page = Number(location.hash.slice(1));
+
+		if (Number.isInteger(page) && page > 0 && page <= state.length) {
+			setActive(page);
+		} else {
+			history.replaceState(null, "", `${location.pathname}#1`);
+		}
+	}, [state.length]);
 
 	return (
 		<div className="blog-listing">
@@ -43,52 +53,43 @@ export const BlogListing: FunctionComponent<BlogListing.Props> = ({data, sort = 
 					))}
 					<div className="col-12 blog-pagination">
 						<ul className="pagination justify-content-center">
-							<li
-								className={clsx("page-item", {
-									disabled: active === 1,
-								})}
-							>
+							<li>
 								<a
-									className="page-link"
-									href="#"
+									className={clsx("page-link", {
+										disabled: active === 1,
+									})}
+									href={`#${active - 1}`}
 									tabIndex={-1}
-									onClick={e => {
-										e.preventDefault();
-										setActive(active === 1 ? 1 : active - 1);
+									onClick={() => {
+										if (active !== 1) {
+											setActive(active - 1);
+										}
 									}}
 								>
 									<i className="fas fa-chevron-left" />
 								</a>
 							</li>
 							{state.map(state => (
-								<li
-									key={state}
-									className={clsx("page-item", {
-										active: active === state,
-									})}
-								>
+								<li key={state}>
 									<a
-										className="page-link"
-										href="#"
-										onClick={e => {
-											e.preventDefault();
-											setActive(state);
-										}}
+										className={clsx("page-link", {
+											active: active === state,
+										})}
+										target="_self"
+										href={`#${state}`}
+										onClick={setActive.bind(null, state)}
 									>
 										{state} <span className="sr-only">(current)</span>
 									</a>
 								</li>
 							))}
-							<li
-								className={clsx("page-item", {
-									disabled: active === state.length,
-								})}
-							>
+							<li>
 								<a
-									className="page-link"
-									href="#"
-									onClick={e => {
-										e.preventDefault();
+									className={clsx("page-link", {
+										disabled: active === state.length,
+									})}
+									href={`#${active + 1}`}
+									onClick={() => {
 										if (active !== state.length) {
 											setActive(active + 1);
 										}

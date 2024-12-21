@@ -461,48 +461,39 @@ header {
 	padding-top: 30px;
 }
 
-.pagination .page-item {
-	.page-link {
-		border: none;
-		box-shadow: none;
-		margin: 0 5px;
-		border-radius: 50px;
-		padding: 0;
-		width: 35px;
-		height: 35px;
-		text-align: center;
-		line-height: 35px;
+.pagination .page-link {
+	border: none;
+	box-shadow: none;
+	margin: 0 5px;
+	border-radius: 50%;
+	padding: 0;
+	width: 35px;
+	height: 35px;
+	text-align: center;
+	line-height: 35px;
 
-		@include theme using ($is-dark) {
-			@if $is-dark {
-				background: color.change($white, $alpha: 0.1);
-				color: $white;
-			} @else {
-				background: color.change($dark, $alpha: 0.2);
-				color: $dark;
-				font-weight: 500;
-			}
-		}
+	transition: background 0.35s;
 
-		&:hover {
-			background: $primary;
-			border-color: $primary;
+	@include theme using ($is-dark) {
+		@if $is-dark {
+			background: color.change($white, $alpha: 0.1);
 			color: $white;
+		} @else {
+			background: color.change($dark, $alpha: 0.2);
+			color: $dark;
+			font-weight: 500;
 		}
 	}
 
 	&.disabled {
-		.page-link {
-			opacity: 0.5;
-		}
+		opacity: 0.5;
 	}
 
-	&.active {
-		.page-link {
-			background: $primary;
-			border-color: $primary;
-			color: $white;
-		}
+	&.active,
+	&:not(.disabled):hover {
+		background: $primary !important;
+		border-color: $primary !important;
+		color: $white !important;
 	}
 }
 
@@ -885,7 +876,7 @@ section {
 			#f29288,
 			#cc6256,
 			#4a240b,
-			color.change($white, $alpha: 0.1),
+			color.change($white, $alpha: 0.1)
 		);
 
 		@for $i from 1 through length($fills) {
