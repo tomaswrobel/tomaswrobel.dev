@@ -28,7 +28,7 @@ export default async function sitemap(): Sitemaps {
 			priority: 0.8,
 		},
 		...blog.map<Sitemap>(post => ({
-			lastModified: post.date,
+			lastModified: post.updated ?? post.date,
 			url: `https://tomaswrobel.dev/blog/${post.id}`,
 			changeFrequency: "never",
 			priority: 0.5,

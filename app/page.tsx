@@ -11,6 +11,7 @@ import Skill from "components/skill";
 import Image from "next/image";
 import {formatter} from "utils";
 import {data} from "components/blog";
+import Button from "components/button";
 
 export const metadata: Metadata = {
 	title: "Tomáš Wróbel | Home",
@@ -22,7 +23,7 @@ const HomePage: FunctionComponent = async () => (
 	<>
 		<Section id="pages.home">
 			<div className="home-banner">
-				<div className="container">
+				<div className="container-xl position-relative">
 					<div className="row full-screen align-items-center">
 						<div className="col-lg-6">
 							<div className="type-box">
@@ -37,13 +38,15 @@ const HomePage: FunctionComponent = async () => (
 									front-end development but I can handle back-end as well.
 								</p>
 								<div className="btn-bar">
-									<a className="button" href="/documents/CV.pdf" download>
+									<Button to="/documents/CV.pdf">
 										Download CV
-									</a>
+									</Button>
 								</div>
 							</div>
 						</div>
-						<div className="col-6" />
+						<div className="col-6">
+							<img src="/images/intro.webp" alt="" className="rounded-circle bg-primary" />
+						</div>
 					</div>
 				</div>
 			</div>
@@ -90,9 +93,9 @@ const HomePage: FunctionComponent = async () => (
 		<Section id="pages.services">
 			<div className="row">
 				<div className="col-sm-6 mt-1 pb-1">
-					<div className="feature-box media">
+					<div className="feature-box">
 						<i className="icon theme-bg icon-mobile" />
-						<div className="feature-content media-body">
+						<div className="feature-content">
 							<h4>Responsive design</h4>
 							<p>
 								Websites I create work on all devices, so you can increase the number of potential
@@ -102,9 +105,9 @@ const HomePage: FunctionComponent = async () => (
 					</div>
 				</div>
 				<div className="col-sm-6 mt-1 pb-1">
-					<div className="feature-box media">
+					<div className="feature-box">
 						<i className="icon theme-bg icon-global" />
-						<div className="feature-content media-body">
+						<div className="feature-content">
 							<h4>Web app development</h4>
 							<p>
 								I create web apps with modern technologies. They are fast and work offline. However, I
@@ -114,9 +117,9 @@ const HomePage: FunctionComponent = async () => (
 					</div>
 				</div>
 				<div className="col-sm-6 mt-1 pb-1">
-					<div className="feature-box media">
+					<div className="feature-box">
 						<i className="icon theme-bg  icon-genius" />
-						<div className="feature-content media-body">
+						<div className="feature-content">
 							<h4>React.js</h4>
 							<p>
 								Many companies use React. I know it very well and this website is built on Next.js. I
@@ -126,9 +129,9 @@ const HomePage: FunctionComponent = async () => (
 					</div>
 				</div>
 				<div className="col-sm-6 mt-1 pb-1">
-					<div className="feature-box media">
+					<div className="feature-box">
 						<i className="icon theme-bg icon-lock" />
-						<div className="feature-content media-body">
+						<div className="feature-content">
 							<h4>Security</h4>
 							<p>
 								These days, SSL certificate is a must. I can install it for you. I also know how to
@@ -138,9 +141,9 @@ const HomePage: FunctionComponent = async () => (
 					</div>
 				</div>
 				<div className="col-sm-6 mt-1 pb-1">
-					<div className="feature-box media">
+					<div className="feature-box">
 						<i className="icon theme-bg icon-target" />
-						<div className="feature-content media-body">
+						<div className="feature-content">
 							<h4>Search engine optimization</h4>
 							<p>
 								SEO is important. I am not an expert, but I can handle my part as a web developer. I can
@@ -150,9 +153,9 @@ const HomePage: FunctionComponent = async () => (
 					</div>
 				</div>
 				<div className="col-sm-6 mt-1 pb-1">
-					<div className="feature-box media">
+					<div className="feature-box">
 						<i className="icon theme-bg icon-speedometer" />
-						<div className="feature-content media-body">
+						<div className="feature-content">
 							<h4>Fast</h4>
 							<p>
 								Websites I create are fast, optimized and compatible. This is also the case with my web
@@ -183,7 +186,7 @@ const HomePage: FunctionComponent = async () => (
 					</div>
 				))}
 				<div className="col-12 read-more-blog text-center">
-					<Link href="/blog" className="button">
+					<Link href="/blog" className="btn">
 						See more
 					</Link>
 				</div>
@@ -198,17 +201,17 @@ const HomePage: FunctionComponent = async () => (
 							Always available for freelancing if the right project comes along, Feel free to contact me.
 						</p>
 						<ul>
-							<li className="media">
+							<li>
 								<Icon label="mail" name="envelope" style="solid" />
-								<span className="media-body">mail@tomaswrobel.dev</span>
+								<span>mail@tomaswrobel.dev</span>
 							</li>
-							<li className="media">
+							<li>
 								<Icon label="Discord" name="discord" style="brands" />
-								<span className="media-body">tomaswrobel</span>
+								<span>tomaswrobel</span>
 							</li>
-							<li className="media">
+							<li>
 								<Icon label="Location" name="map-marked-alt" style="solid" />
-								<span className="media-body">Czech Republic</span>
+								<span>Czech Republic</span>
 							</li>
 						</ul>
 					</div>

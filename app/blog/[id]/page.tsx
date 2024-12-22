@@ -1,7 +1,7 @@
 import "highlight.js/scss/monokai-sublime.scss";
 import BlogSingle from "components/blog-single";
-import type {Metadata} from "next";
-import type {Props, FrontMatter, MDX} from "components/blog";
+import type {Metadata} from "next/types";
+import type {Props, FrontMatter} from "components/blog";
 
 export const dynamicParams = false;
 
@@ -12,7 +12,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({params}: Props) {
-	const {name, description, date, img}: FrontMatter = await import(`../posts/${params.id}`);
+	const {id} = await params;
+	const {name, description, date, img, updated = date}: FrontMatter = await import(`../posts/${id}`);
 
 	const metadata: Metadata = {
 		title: `Tomáš Wróbel | ${name}`,
@@ -21,9 +22,10 @@ export async function generateMetadata({params}: Props) {
 			type: "article",
 			images: `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}${img.src}`,
 			publishedTime: date.toISOString(),
+			modifiedTime: updated.toISOString(),
 			authors: "Tomáš Wróbel",
 			description,
-			url: `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}/blog/${params.id}`,
+			url: `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}/blog/${id}`,
 		},
 	};
 
@@ -31,5 +33,5 @@ export async function generateMetadata({params}: Props) {
 }
 
 export default async function Blog({params}: Props) {
-	return <BlogSingle module={await import(`../posts/${params.id}`)} />;
+	return <BlogSingle module={await import(`../posts/${(await params).id}`)} />;
 }

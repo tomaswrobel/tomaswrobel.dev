@@ -51,7 +51,7 @@ const CertificatesSwiper: FunctionComponent = () => (
 			<SwiperSlide className="document d-flex align-items-center justify-content-center">
 				<div className="text-center">
 					<h2 className="mb-3">This is how I learn</h2>
-					<Link className="button" href="/certificates">
+					<Link className="btn" href="/certificates">
 						See all certificates
 					</Link>
 				</div>

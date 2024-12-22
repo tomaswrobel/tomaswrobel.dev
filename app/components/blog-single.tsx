@@ -1,11 +1,13 @@
-import type {MDXComponents} from "mdx/types";
 import Image from "next/image";
-import type {ComponentType, FunctionComponent} from "react";
+import type {FunctionComponent} from "react";
 import {formatter} from "utils";
-import type {FrontMatter, MDX} from "./blog";
+import type {MDX} from "./blog";
 import * as authors from "./blog-authors";
+import Icon from "./fa-icon";
 
-const BlogSingle: FunctionComponent<BlogSingle.Props> = ({module: {default: Post, img, name, date, author}}) => {
+const BlogSingle: FunctionComponent<BlogSingle.Props> = ({
+	module: {default: Post, img, name, date, author, updated},
+}) => {
 	const Author = authors[author];
 
 	return (
@@ -19,15 +21,22 @@ const BlogSingle: FunctionComponent<BlogSingle.Props> = ({module: {default: Post
 						<article>
 							<div className="article-title">
 								<h2>{name}</h2>
-								<div className="media">
+								<div className="article-meta">
 									<Author />
-									<div className="media-body">
+									<div className="ps-2 flex-grow-1">
 										<label>{author}</label>
 										<span>{formatter.format(date)}</span>
 									</div>
 								</div>
 							</div>
 							<div className="article-content">
+								{updated && (
+									<>
+										<Icon name="check" style="solid" />
+										{"\t"}
+										Updated: {formatter.format(updated)}
+									</>
+								)}
 								<Post />
 							</div>
 						</article>

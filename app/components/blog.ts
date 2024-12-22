@@ -8,6 +8,7 @@ export interface FrontMatter {
 	date: Date;
 	name: string;
 	id?: string;
+	updated?: Date;
 	description: string;
 	author: "Programming Hub" | "SoloLearn" | "freeCodeCamp" | "Tomáš Wróbel";
 }
@@ -15,6 +16,7 @@ export interface FrontMatter {
 export type Author = FrontMatter["author"];
 
 export interface Data {
+	updated?: Date;
 	id: string;
 	img: StaticImageData;
 	name: string;
@@ -24,7 +26,7 @@ export interface Data {
 }
 
 export interface Props {
-	params: Props.Params;
+	params: Promise<Props.Params>;
 }
 
 export declare namespace Props {

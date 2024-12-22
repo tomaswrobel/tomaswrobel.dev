@@ -66,7 +66,7 @@ const ProgrammingHub: FunctionComponent = () => {
 };
 
 const Me: FunctionComponent = () => (
-	<div className="avatar rounded-circle">
+	<div className="avatar rounded-circle flex-shrink-0">
 		<img src="/images/me.jpeg" title="" alt="" />
 	</div>
 );

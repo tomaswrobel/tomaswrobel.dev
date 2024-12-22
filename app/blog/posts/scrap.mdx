@@ -1,7 +1,8 @@
 export {default as img} from "../images/scrap.png";
 export const name = "Scrap is the way";
 export const author = "Tomáš Wróbel";
-export const date = new Date(2023, 8, 4);
+export const date = new Date(2024, 8, 4);
+export const updated = new Date(2024, 11, 22);
 export const description = "Scrap is a tool that simplifies the transition from block-based programming to JavaScript.";
 
 ### Empowering the Transition: The Story of Scrap
@@ -11,9 +12,7 @@ of programming. Yet, as I ventured into JavaScript, I faced a formidable challen
 foundation, the transition to JavaScript felt like a daunting leap. This challenge ignited the idea for **Scrap**, a
 tool designed to simplify the transition from block-based programming to JavaScript.
 
-<a className="button" href="https://scrap.tomaswrobel.dev">
-	Run Scrap
-</a>
+<Button to="https://scrap.tomaswrobel.dev">Download Scrap</Button>
 
 #### Features
 
@@ -43,25 +42,24 @@ and powerful, while Scratch inspired me to make it intuitive and easy to use.
 
 ### The technology
 
-Scrap is built with vanilla [TypeScript](https://www.typescriptlang.org/) and is hosted on
-[GitHub Pages](https://pages.github.com/).
+Scrap is coded with [Rust](https://www.rust-lang.org/), [TypeScript](https://www.typescriptlang.org/), and
+[Sass](https://sass-lang.com/).
 
-It uses [Blockly](https://developers.google.com/blockly) as a block editor. I still look for a good text editor, which
-is simple, yet powerful. Meanwhile, I have created a simple text editor with [highlight.js](https://highlightjs.org/)
-and `<textarea>` element.
+Scrap consists of HTML frontend and Rust backend. The Rust backend handles the underlying logic, and also the
+compilation of user code to JavaScript, with the help of [SWC](https://swc.rs/). The frontend is built with TypeScript
+and Sass, and uses [Blockly](https://developers.google.com/blockly) as a block editor. The code editor is powered by
+[Monaco Editor](https://microsoft.github.io/monaco-editor/).
 
 Scrap uses technology based on [BlockLike.js](https://blocklike.org) as an engine (not VM).
 
-Scrap output uses [JSDoc](https://jsdoc.app/) for type annotations and is compiled by [Babel](https://babeljs.io/).
+### Why SWC?
 
-### Why Babel?
-
-Babel is used to walk through the AST and:
+SWC is used to walk through the AST and:
 
 1. Make JavaScript code asynchronous.
 2. Convert code into blocks.
 
-BlockLike.js includes a rewriter that adds `async`/`await` keywords to the code, but it relies on RegEx, which isn't
+BlockLike.js includes a rewriter that adds `async` / `await` keywords to the code, but it relies on RegEx, which isn't
 ideal. Additionally, it lacks support for nested blocks.
 
 To address these issues, I forked BlockLike.js and developed

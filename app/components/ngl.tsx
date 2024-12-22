@@ -27,26 +27,29 @@ const submit: FormEventHandler<HTMLFormElement> = async e => {
 
 const Form: FunctionComponent = () => (
 	<form onSubmit={submit}>
-		<div className="row">
+		<div className="row gap-3">
 			<div className="col-md-12">
-				<div className="form-group">
-					<select name="question" className="form-control" required>
-						<option value="anonymous">Send me anonymous messages!</option>
-						<option value="confessions">Send me anonymous confessions</option>
-						<option value="3words">Describe me in 3 words, anonymously</option>
-						<option value="neverhave">Send me a never have I ever, anonymously</option>
-						<option value="tbh">If you could change anything about me, what would it be?</option>
-					</select>
-				</div>
+				<select name="question" className="form-select" required>
+					<option value="anonymous">Send me anonymous messages!</option>
+					<option value="confessions">Send me anonymous confessions</option>
+					<option value="3words">Describe me in 3 words, anonymously</option>
+					<option value="neverhave">Send me a never have I ever, anonymously</option>
+					<option value="tbh">If you could change anything about me, what would it be?</option>
+				</select>
 			</div>
 			<div className="col-md-12">
-				<div className="form-group">
-					<textarea name="answer" placeholder="Message *" rows={6} className="form-control" required />
-				</div>
+				<textarea
+					name="answer"
+					placeholder="Message *"
+					rows={6}
+					className="form-control"
+					required
+					style={{resize: "none"}}
+				/>
 			</div>
 			<div className="col-md-12">
 				<div className="send">
-					<input className="button" type="submit" value="Send message" />
+					<input className="btn" type="submit" value="Send message" />
 				</div>
 			</div>
 		</div>
