@@ -2,7 +2,7 @@ export {default as img} from "../images/scrap.png";
 export const name = "Scrap is the way";
 export const author = "Tomáš Wróbel";
 export const date = new Date(2024, 8, 4);
-export const updated = new Date(2025, 0, 17);
+export const updated = new Date(2025, 0, 21);
 export const description = "Scrap is a tool that simplifies the transition from block-based programming to JavaScript.";
 
 ### The Story of Scrap
@@ -78,7 +78,9 @@ Scrap uses technology based on [BlockLike.js](https://blocklike.org) as an engin
 
 Scrap Engine is based on BlockLike.js; these days, the code bases are totally different, and the features differ as well.
 
-As Scrap doesn't have a VM, somehow it needs to delay block execution (like Scratch does), and control code execution. Most of that handles compiler, but still, some things must be done at runtime – setters, getters and throwing uncatchable errors do the job.
+As Scrap doesn't have a VM, somehow it needs to delay block execution (like Scratch does), and control code execution. Compiler handles most of that, but still, some things must be done at runtime – setters, getters and throwing uncatchable errors do the job.
+
+Scrap comes up with a SWC plugin, which provides users better coding experience, as their code can be <q>less ugly</q>. That means, if one includes [Scrap Engine](https://npmjs.com/package/scrap-engine) and use just the code written in IDE, it won't work.
 
 Let's see how engine and SWC cooperate:
 
@@ -104,9 +106,8 @@ Monaco Editor is extended, so it provides:
 - color pickers when using Scrap's color functions
 - syntax highlighting mirrors the block colors
 
-
 ### To sum up...
 
 Scrap has a great potential to become a great tool, doesn't it? 
 
-If you totally agree, and, by chance, you are a developer, consider [join the team](/blog/scrap-contribution-needed.mdx).
+If you totally agree, and, by chance, you are a developer, consider [joining the team](/blog/scrap-contribution-needed.mdx).
