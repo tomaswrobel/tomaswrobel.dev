@@ -33,8 +33,8 @@ export const DynamicMenu: FunctionComponent = () => {
 	return (
 		<ul className="nav">
 			{sections.map(([, text, href = ""]) => (
-				<li key={href} className={clsx({active: active === href})}>
-					<a href={"#" + href}>
+				<li key={href}>
+					<a href={"#" + href} className={clsx({active: active === href})}>
 						<span>{text}</span>
 					</a>
 				</li>

@@ -1,6 +1,6 @@
 @use "bootstrap" as * with (
 	$prefix: "",
-	$primary: #FFAF00,
+	$primary: #ffaf00,
 	$line-height-lg: 1.7,
 	$line-height-sm: 1.7,
 	$dark: #0b0b13,
@@ -239,13 +239,18 @@ aside {
 				line-height: 18px;
 				display: inline-block;
 
-				@include theme using ($is-dark) {
-					@if $is-dark {
-						color: color.change($white, $alpha: 0.8);
-						font-weight: 300;
-					} @else {
-						color: color.change($dark, $alpha: 0.7);
-						font-weight: 400;
+				color: $primary;
+				font-weight: 600;
+
+				&:not(.active) {
+					@include theme using ($is-dark) {
+						@if $is-dark {
+							color: color.change($white, $alpha: 0.8);
+							font-weight: 300;
+						} @else {
+							color: color.change($dark, $alpha: 0.7);
+							font-weight: 400;
+						}
 					}
 				}
 
@@ -271,11 +276,6 @@ aside {
 				@include media-breakpoint-only(xl) {
 					padding: 12px 30px;
 				}
-			}
-
-			&.active > a {
-				color: $primary;
-				font-weight: 600;
 			}
 		}
 	}

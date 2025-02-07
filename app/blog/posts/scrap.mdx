@@ -2,7 +2,7 @@ export {default as img} from "../images/scrap.png";
 export const name = "Scrap is the way";
 export const author = "Tomáš Wróbel";
 export const date = new Date(2024, 8, 4);
-export const updated = new Date(2025, 0, 21);
+export const updated = new Date(2025, 1, 7);
 export const description = "Scrap is a tool that simplifies the transition from block-based programming to JavaScript.";
 
 ### The Story of Scrap
@@ -16,10 +16,10 @@ tool designed to simplify the transition from block-based programming to JavaScr
 
 ### Features
 
-1. **Block-based coding** &ndash; While Scrap encourages transition to text-based programming, it supports both block an
-   text editors.
-2. **Strongly typed** &ndash; In text editor, Scrap supports TypeScript type annotations, which are used to provide type safety.
-   In block editor, Scrap won't allow you to connect blocks with incompatible types.
+1. **Block-based coding** &ndash; While Scrap encourages the transition to text-based programming, it supports both
+   block and text editors.
+2. **Strongly typed** &ndash; In the text editor, Scrap supports TypeScript type annotations, which provide type safety.
+   In the block editor, Scrap won't allow you to connect blocks with incompatible types.
 3. **Blocks &#x21c6; Code** &ndash; Scrap allows you to convert blocks to code and vice versa. This feature is
    especially useful for learning JavaScript syntax.
 4. **No VM, no interpreter** &ndash; Scrap compiles your code to JavaScript, which means that you can run it anywhere,
@@ -30,28 +30,34 @@ tool designed to simplify the transition from block-based programming to JavaScr
 
 ### Code × Text
 
-<q>ScrapScript</q> is a code name for the problem of the incompatibility. It aims to design an ECMAScript subset, which can be converted to blocks and back **as easy as possible**.
+<q>ScrapScript</q> is a code name for the problem of the incompatibility. It aims to design an ECMAScript subset, which can
+be converted to blocks and back **as easy as possible**.
 
-It's been obvious since the very beginning that ScrapScript needs to be typed, as not all blocks are compatible by shape. Previously, this was handled via JSDoc but [when the Monaco Editor was introduced in Scrap 4](https://github.com/tomaswrobel/scrap/releases/tag/v4.0.0), TypeScript was way more helpful.
+It's been obvious since the very beginning that ScrapScript needs to be typed, as not all blocks are compatible by
+shape. Previously, this was handled via JSDoc but
+[when the Monaco Editor was introduced in Scrap 4](https://github.com/tomaswrobel/scrap/releases/tag/v4.0.0), TypeScript
+was way more helpful.
 
-However, not all JavaScript features will be supported. **Classes**, **symbols**, **regular expressions**, **modules**, **sets & maps**, **undefined**, **template literals**, and many more...
+However, not all JavaScript features will be supported. **Classes**, **symbols**, **regular expressions**, **modules**,
+**sets & maps**, **undefined**, **template literals**, and many more...
 
 And some equivalent features lose their different syntax when converted. An example might be:
 
 ```js
-object.toString()
+object.toString();
 // After conversion to blocks and back
-String(object)
+String(object);
 ```
 
-Thanks to [#158](https://github.com/tomaswrobel/scrap/issues/158), I realised that `Date.prototype.getTime()` **can** be implemented.
+Thanks to [#158](https://github.com/tomaswrobel/scrap/issues/158), I realised that `Date.prototype.getTime()` **can** be
+implemented.
 
 ```js
 // These are equivalent:
-object.valueOf()
-Number(object) // default Scrap syntax
-+object
-object.getTime() // for dates, #158
+object.valueOf();
+Number(object); // default Scrap syntax
++object;
+object.getTime(); // for dates, #158
 ```
 
 ### The inspiration
@@ -62,52 +68,59 @@ and powerful, while Scratch inspired me to make it intuitive and easy to use.
 
 ### Under the hood
 
-#### The technology 
+#### The technology
 
 Scrap is coded with [Rust](https://www.rust-lang.org/), [TypeScript](https://www.typescriptlang.org/), and
 [Sass](https://sass-lang.com/).
 
 Scrap consists of HTML frontend and Rust backend. The Rust backend handles the underlying logic, and also the
 compilation of user code to JavaScript, with the help of [SWC](https://swc.rs/). The frontend is built with TypeScript
-and Sass, and uses [Blockly](https://developers.google.com/blockly) as a block editor. The code editor is powered by
+and Sass and uses [Blockly](https://developers.google.com/blockly) as a block editor. The code editor is powered by
 [Monaco Editor](https://microsoft.github.io/monaco-editor/).
 
 Scrap uses technology based on [BlockLike.js](https://blocklike.org) as an engine (not VM).
 
 #### Scrap engine and SWC
 
-Scrap Engine is based on BlockLike.js; these days, the code bases are totally different, and the features differ as well.
+Scrap Engine is based on BlockLike.js; these days, the code bases are totally different, and the features differ as
+well.
 
-As Scrap doesn't have a VM, somehow it needs to delay block execution (like Scratch does), and control code execution. Compiler handles most of that, but still, some things must be done at runtime – setters, getters and throwing uncatchable errors do the job.
+As Scrap doesn't have a VM, somehow it needs to delay block execution (like Scratch does), and control code execution.
+The compiler handles most of that, but still, some things must be done at runtime – setters, getters, and throwing
+uncatchable errors do the job.
 
-Scrap comes up with a SWC plugin, which provides users better coding experience, as their code can be <q>less ugly</q>. That means, if one includes [Scrap Engine](https://npmjs.com/package/scrap-engine) and use just the code written in IDE, it won't work.
+Scrap comes up with a SWC plugin, which provides users better coding experience, as their code can be <q>less ugly</q>.
+That means, if one includes [Scrap Engine](https://npmjs.com/package/scrap-engine) and uses just the code written in
+IDE, it won't work.
 
-Let's see how engine and SWC cooperate:
+Let's see how the engine and SWC cooperate:
 
-- Async / await
-    - Scrap Engine's methods are asynchronous
-    - In IDE, users don't even notice, as SWC adds the necessary keywords
-- Setters / getters
-    - Scrap Engine needs to have methods instead of getters and setters (`self.getX()` and `self.setX(10)`
-    - In IDE, users use more familiar syntax: `self.x = 10`
-- Control flow
-    - When Scrap engine needs to, or is told to stop the project, it throws `Scrap.StopError`
-    - SWC makes sure users cannot catch the error, as this would lose the effect
-- On-screen variables
-    - Scrap engine allows to have Scratch-like on-screen variables
-    - SWC allows users to declare them inside `Variables` interface and rewrites the setters and getters 
-- SWC also handles the conversion between blocks and text
+-   Async / await
+    -   Scrap Engine's methods are asynchronous
+    -   In IDE, users don't even notice, as SWC adds the necessary keywords
+-   Setters / getters
+    -   Scrap Engine needs to have methods instead of getters and setters (`self.getX()` and `self.setX(10)`
+    -   In IDE, users use the more familiar syntax: `self.x = 10`
+-   Control flow
+    -   When the Scrap engine needs to, or is told to stop the project, it throws `Scrap.StopError`
+    -   SWC makes sure users cannot catch the error, as this would lose the effect
+-   On-screen variables
+    -   Scrap engine allows to have Scratch-like on-screen variables
+    -   SWC allows users to declare them inside the `Variables` interface and rewrites the setters and getters
+-   SWC also handles the conversion between blocks and text
 
-#### Monaco Editor 
+#### Monaco Editor
 
 Monaco Editor is extended, so it provides:
-- TypeScript IntelliSense tied to the Scrap environment
-- warning about the block-incompatible syntax
-- color pickers when using Scrap's color functions
-- syntax highlighting mirrors the block colors
 
-### To sum up...
+-   TypeScript IntelliSense tied to the Scrap environment
+-   warning about the block-incompatible syntax
+-   color pickers when using Scrap's color functions
+-   syntax highlighting mirrors the block colors
 
-Scrap has a great potential to become a great tool, doesn't it? 
+### Conclusion
 
-If you totally agree, and, by chance, you are a developer, consider [joining the team](/blog/scrap-contribution-needed.mdx).
+Scrap is a tool that simplifies the transition from block-based programming to JavaScript. It is designed to be
+intuitive and easy to use, while also providing advanced features for more experienced users. Scrap is open-source,
+which means that you can contribute to it and make it better. If you are interested in contributing to Scrap, please get
+in touch with me.

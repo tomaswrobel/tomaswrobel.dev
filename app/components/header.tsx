@@ -85,9 +85,6 @@ const Header: FunctionComponent<Header.Props> = () => {
 					)}
 				</div>
 				<div className="nav justify-content-center social-icons">
-					<a href="https://facebook.com/wrobeltomas">
-						<Icon name="facebook" style="brands" label="Facebook" />
-					</a>
 					<a href="https://discordapp.com/users/tomaswrobel">
 						<Icon name="discord" style="brands" label="Discord" />
 					</a>
