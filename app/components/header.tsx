@@ -74,7 +74,7 @@ const Header: FunctionComponent<Header.Props> = () => {
 				<div className="h-100">
 					<div className="top">
 						<div>
-							<img src="/images/me.jpeg" title="" alt="" />
+							<img src="/images/me.png" title="" alt="" />
 						</div>
 						<h2>Tomáš</h2>
 					</div>

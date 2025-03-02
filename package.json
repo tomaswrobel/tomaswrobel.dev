@@ -49,5 +49,5 @@
 			"@next/next/no-img-element": "off"
 		}
 	},
-	"packageManager": "pnpm@9.15.1"
+	"packageManager": "pnpm@10.5.2"
 }
