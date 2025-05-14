@@ -963,8 +963,13 @@ section {
 		font-size: 0.85em !important;
 		overflow: hidden !important;
 		border-radius: 0.3em;
+		tab-size: 4;
 
 		@include media-breakpoint-down(md) {
+			tab-size: 2;
+		}
+
+		@include media-breakpoint-down(sm) {
 			font-size: 0.75em !important;
 		}
 
