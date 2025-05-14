@@ -15,33 +15,33 @@
 	},
 	"dependencies": {
 		"@fortawesome/fontawesome-free": "6.7.2",
-		"bootstrap": "5.3.3",
+		"bootstrap": "5.3.6",
 		"clsx": "2.1.1",
 		"et-line": "1.0.1",
-		"highlight.js": "11.11.0",
-		"next": "15.1.2",
+		"highlight.js": "11.11.1",
+		"next": "15.3.2",
 		"owl.carousel": "2.3.4",
-		"react": "19.0.0",
-		"react-dom": "19.0.0",
-		"swiper": "11.1.15",
+		"react": "19.1.0",
+		"react-dom": "19.1.0",
+		"swiper": "11.2.6",
 		"typed.js": "2.1.0"
 	},
 	"devDependencies": {
-		"@eslint/js": "9.17.0",
+		"@eslint/js": "9.26.0",
 		"@fortawesome/fontawesome-common-types": "6.7.2",
 		"@mdx-js/loader": "3.1.0",
 		"@mdx-js/react": "3.1.0",
-		"@next/mdx": "15.1.2",
+		"@next/mdx": "15.3.2",
 		"@types/mdx": "2.0.13",
-		"@types/node": "22.10.2",
-		"@types/react": "19.0.2",
-		"@types/react-dom": "19.0.2",
+		"@types/node": "22.15.18",
+		"@types/react": "19.1.4",
+		"@types/react-dom": "19.1.5",
 		"@types/webpack": "5.28.5",
-		"eslint": "9.17.0",
-		"rehype-highlight": "7.0.1",
-		"sass": "1.83.0",
-		"typescript": "5.7.2",
-		"typescript-eslint": "8.18.1"
+		"eslint": "9.26.0",
+		"rehype-highlight": "7.0.2",
+		"sass": "1.88.0",
+		"typescript": "5.8.3",
+		"typescript-eslint": "8.32.1"
 	},
 	"eslintConfig": {
 		"extends": "next/core-web-vitals",
@@ -49,5 +49,5 @@
 			"@next/next/no-img-element": "off"
 		}
 	},
-	"packageManager": "pnpm@10.5.2"
+	"packageManager": "pnpm@10.10.0"
 }

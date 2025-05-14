@@ -24,6 +24,7 @@
 @use "@fortawesome/fontawesome-free/scss/fontawesome.scss" as *;
 @use "@fortawesome/fontawesome-free/scss/brands.scss";
 @use "@fortawesome/fontawesome-free/scss/solid.scss";
+@use "highlight.js/scss/monokai-sublime.scss";
 
 @use "sass:string";
 @use "sass:color";
@@ -132,10 +133,6 @@ strong {
 
 hr {
 	border-top-color: currentColor;
-}
-
-.dark-bg {
-	@include background(2);
 }
 
 .btn {
@@ -959,6 +956,28 @@ section {
 				background: $primary;
 				color: $white;
 			}
+		}
+	}
+
+	pre code {
+		font-size: 0.85em !important;
+		overflow: hidden !important;
+		border-radius: 0.3em;
+
+		@include media-breakpoint-down(md) {
+			font-size: 0.75em !important;
+		}
+
+		background-image: url("window.svg");
+		background-position: right top;
+		background-repeat: no-repeat;
+
+		&::before {
+			content: "";
+			display: block;
+			height: 1px;
+			background: #fff3;
+			margin: 2em -1em 0.75em -1em;
 		}
 	}
 }

@@ -12,6 +12,7 @@ import Image from "next/image";
 import {formatter} from "utils";
 import {data} from "components/blog";
 import Button from "components/button";
+import Code from "components/code.mdx";
 
 export const metadata: Metadata = {
 	title: "Tomáš Wróbel | Home",
@@ -30,7 +31,7 @@ const HomePage: FunctionComponent = async () => (
 								<span>Hello, I am</span>
 								<h1>Tomáš Wróbel</h1>
 								<p className="lead">
-									I am passionate{" "}
+									I am a{" "}
 									<TypingAnimation strings={["web developer", "programmer", "student"]} />
 								</p>
 								<p className="desc">
@@ -38,14 +39,12 @@ const HomePage: FunctionComponent = async () => (
 									front-end development but I can handle back-end as well.
 								</p>
 								<div className="btn-bar">
-									<Button to="/documents/CV.pdf">
-										Download CV
-									</Button>
+									<Button to="/documents/CV.pdf">Download CV</Button>
 								</div>
 							</div>
 						</div>
 						<div className="col-6">
-							<img src="/images/intro.webp" alt="" className="rounded-circle bg-primary" />
+							<img src="/images/intro.png" alt="" className="rounded-circle bg-primary" />
 						</div>
 					</div>
 				</div>
@@ -57,7 +56,7 @@ const HomePage: FunctionComponent = async () => (
 					<div className="about-me">
 						<div className="img">
 							<div className="img-in">
-								<img src="/images/code.png" title="" alt="" />
+								<Code />
 							</div>
 						</div>
 					</div>
@@ -69,8 +68,8 @@ const HomePage: FunctionComponent = async () => (
 						</h3>
 						<p>
 							I wrote my Hello World in Java when I was 11. Since the age of 12 I&#8216;ve been
-							specialized in web. in web technologies. These days I develop open-source web apps, These
-							days I develop open-source Web or Flutter apps &ndash; This web is{" "}
+							specialized in web technologies. These days I develop open-source web apps or Flutter apps
+							&ndash; This web is{" "}
 							<a href="https://github.com/tomaswrobel/tomaswrobel.dev" target="_blank">
 								one of them
 							</a>

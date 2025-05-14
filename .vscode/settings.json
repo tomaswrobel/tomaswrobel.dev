@@ -20,5 +20,8 @@
 	"files.associations": {
 		"README": "markdown",
 		"LICENSE": "markdown"
+	},
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	}
 }

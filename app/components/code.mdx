@@ -1,0 +1,27 @@
+```ts
+export class Problem {
+	public A: number;
+	public B: number;
+	public k: -1 | 1;
+
+	public getDescription() {
+		let B = this.B.toString();
+
+		if (B[0] === "-") {
+			B = `(${B})`;
+		}
+
+		return `${this.A} ${this.k === -1 ? "-" : "+"} ${B} = ?`;
+	}
+
+	public solve() {
+		return this.A + this.B * this.k;
+	}
+
+	protected constructor() {
+		this.A = Math.floor(Math.random() * 201) - 100;
+		this.B = Math.floor(Math.random() * 201) - 100;
+		this.k = Math.random() < 0.5 ? 1 : -1;
+	}
+}
+```
