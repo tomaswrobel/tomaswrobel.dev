@@ -1,5 +1,4 @@
 @use "bootstrap" as * with (
-	$prefix: "",
 	$primary: #ffaf00,
 	$line-height-lg: 1.7,
 	$line-height-sm: 1.7,
@@ -86,11 +85,9 @@ $backgrounds: (
 	}
 }
 
-html {
-	scroll-behavior: smooth;
-}
-
+html,
 body {
+	scroll-behavior: smooth;
 	font-weight: 300;
 	font-size: 15px;
 
@@ -102,8 +99,12 @@ body {
 }
 
 img {
-	max-width: 100%;
 	user-select: none;
+}
+
+.img {
+	position: relative;
+	aspect-ratio: 1;
 }
 
 * {
@@ -136,21 +137,33 @@ hr {
 }
 
 .btn {
+	position: relative;
+	display: inline-block;
+	border: 1px solid transparent;
 	font-size: 14px;
 	letter-spacing: 2px;
+	text-decoration: none !important;
+	transition: ease all 0.35s;
 
-	--btn-hover-color: #{$primary};
-	--btn-bg: #{$primary};
-	--btn-color: #{$white};
+	background: $primary;
+	color: $white;
+	box-shadow: 4px 4px $white;
 
-	@include theme($white, $dark) using ($color) {
-		box-shadow: 4px 4px #{$color};
+	&:hover {
+		background: $white;
+		color: $primary;
+		box-shadow: 4px 4px $primary;
+	}
 
-		&:hover {
-			box-shadow: 4px 4px $primary;
+	@include light {
+		&:not(:hover) {
+			box-shadow: 4px 4px $dark;
 		}
 
-		--btn-hover-bg: #{$color};
+		&:hover {
+			background: $dark;
+			color: $white;
+		}
 	}
 }
 
@@ -159,7 +172,7 @@ main {
 	margin-left: 250px;
 	@include background(1);
 
-	@include media-breakpoint-down(lg) {
+	@include media-breakpoint-down(md) {
 		margin: 0;
 	}
 }
@@ -300,7 +313,7 @@ aside {
 		transition: ease all 0.35s;
 	}
 
-	@include media-breakpoint-down(lg) {
+	@include media-breakpoint-down(md) {
 		z-index: $zindex-modal;
 		left: calc(var(--sidebar-offset) * 1px - 250px);
 	}
@@ -380,11 +393,11 @@ nav {
 
 		@include background(4);
 
-		@include media-breakpoint-down(lg) {
+		@include media-breakpoint-down(md) {
 			margin-left: 40px;
 		}
 
-		@include media-breakpoint-down(md) {
+		@include media-breakpoint-down(sm) {
 			margin-left: 25px;
 		}
 
@@ -397,7 +410,7 @@ nav {
 			font-weight: 500;
 			padding-top: 10px;
 
-			@include media-breakpoint-down(md) {
+			@include media-breakpoint-down(sm) {
 				font-size: 20px;
 			}
 		}
@@ -508,11 +521,11 @@ nav {
 
 	@include background(1);
 
-	@include media-breakpoint-down(lg) {
+	@include media-breakpoint-down(md) {
 		padding-bottom: 80px;
 	}
 
-	@include media-breakpoint-down(md) {
+	@include media-breakpoint-down(sm) {
 		padding-bottom: 50px;
 	}
 }
@@ -531,7 +544,7 @@ nav {
 
 	@include background(1);
 
-	@include media-breakpoint-down(lg) {
+	@include media-breakpoint-down(md) {
 		padding-top: 100px;
 		padding-bottom: 40px;
 	}
@@ -674,7 +687,7 @@ article {
 .color-switch {
 	top: 35px;
 
-	@include media-breakpoint-down(lg) {
+	@include media-breakpoint-down(md) {
 		top: 65px;
 		right: 5px;
 	}
@@ -683,33 +696,21 @@ article {
 .back-link {
 	top: 95px;
 
-	@include media-breakpoint-down(lg) {
+	@include media-breakpoint-down(md) {
 		top: 125px;
 		right: 5px;
 	}
 }
 
-section {
-	padding: 50px 0;
-
-	@include media-breakpoint-down(md) {
-		padding: 30px 0;
-	}
-
-	&:first-child {
-		padding: 0;
-	}
-
-	&:last-child {
-		padding-bottom: 100px;
-	}
+section:not(:first-of-type) {
+	@extend .py-3;
 }
 
 .title {
-	margin-bottom: 35px;
+	padding: 40px 0;
 
-	@include media-breakpoint-down(md) {
-		margin-bottom: 1.5rem;
+	@include media-breakpoint-down(sm) {
+		padding: 30px 0;
 	}
 
 	h1,
@@ -726,7 +727,7 @@ section {
 		text-transform: uppercase;
 		letter-spacing: 6px;
 
-		@include media-breakpoint-down(md) {
+		@include media-breakpoint-down(sm) {
 			letter-spacing: 2px;
 		}
 
@@ -778,27 +779,9 @@ section {
 		}
 	}
 
-	@include media-breakpoint-down(lg) {
-		padding-top: 80px;
-		padding-bottom: 80px;
-	}
-
-	@include media-breakpoint-down(md) {
+	@include media-breakpoint-down(sm) {
 		padding-top: 60px;
 		padding-bottom: 60px;
-	}
-}
-
-.particles {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	opacity: 0.1;
-
-	@include light {
-		background: $dark;
 	}
 }
 
@@ -832,6 +815,12 @@ section {
 		padding-bottom: 100px;
 	}
 
+	@include media-breakpoint-up(lg) {
+		img {
+			max-width: 120%;
+		}
+	}
+
 	.type-box {
 		padding-top: 40px;
 		padding-bottom: 40px;
@@ -842,7 +831,7 @@ section {
 			font-weight: 500;
 			margin: 0 0 20px;
 
-			@include media-breakpoint-down(md) {
+			@include media-breakpoint-down(sm) {
 				font-size: 18px;
 				margin: 0 0 10px;
 			}
@@ -855,11 +844,11 @@ section {
 			margin: 0 0 20px;
 			@extend %color;
 
-			@include media-breakpoint-down(xl) {
+			@include media-breakpoint-down(lg) {
 				font-size: 70px;
 			}
 
-			@include media-breakpoint-down(md) {
+			@include media-breakpoint-down(sm) {
 				font-size: 45px;
 				margin-bottom: 15px;
 			}
@@ -870,7 +859,7 @@ section {
 			font-size: 18px;
 			@extend %color, .mb-4;
 
-			@include media-breakpoint-down(md) {
+			@include media-breakpoint-down(sm) {
 				font-size: 16px;
 				margin-bottom: 15px;
 			}
@@ -880,7 +869,7 @@ section {
 			max-width: 450px;
 			font-size: 18px;
 
-			@include media-breakpoint-down(md) {
+			@include media-breakpoint-down(sm) {
 				font-size: 16px;
 			}
 		}
@@ -965,7 +954,7 @@ section {
 		border-radius: 0.3em;
 		tab-size: 4;
 
-		@include media-breakpoint-down(md) {
+		@include media-breakpoint-down(sm) {
 			tab-size: 2;
 		}
 
@@ -990,10 +979,6 @@ section {
 .about-info {
 	@include media-breakpoint-up(lg) {
 		padding-left: 50px;
-	}
-
-	.title {
-		margin-bottom: 40px;
 	}
 
 	h3 {
@@ -1049,7 +1034,7 @@ section {
 	transition: ease background 0.35s;
 	display: flex;
 
-	@include media-breakpoint-down(lg) {
+	@include media-breakpoint-down(md) {
 		padding: 20px;
 	}
 
@@ -1108,7 +1093,7 @@ section {
 		height: 100px;
 		overflow: hidden;
 
-		@include media-breakpoint-down(md) {
+		@include media-breakpoint-down(sm) {
 			width: 50px;
 			height: 50px;
 		}
@@ -1117,7 +1102,7 @@ section {
 	.media-body {
 		padding-left: 25px;
 
-		@include media-breakpoint-down(md) {
+		@include media-breakpoint-down(sm) {
 			padding-left: 15px;
 		}
 	}
@@ -1174,84 +1159,57 @@ input[name="mobile"] {
 			}
 		}
 
-		@include media-breakpoint-down(md) {
+		@include media-breakpoint-down(sm) {
 			margin-bottom: 25px;
 			text-align: left;
 
-			img,
-			svg {
-				max-width: 100px;
+			img, svg {
+				width: 100px;
+				height: 100px;
 			}
+		}
+	}
+
+	.rb-time {
+		display: inline-block;
+		padding: 5px 10px;
+		color: $white;
+		background: $primary;
+		font-size: 10px;
+		font-weight: 300;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		position: absolute;
+		top: 0;
+		right: 0;
+
+		@include media-breakpoint-down(sm) {
+			position: relative;
+			margin-bottom: 14px;
+			vertical-align: top;
 		}
 	}
 
 	h4 {
 		margin-bottom: 5px;
+	}
 
-		@include media-breakpoint-down(md) {
-			br {
-				display: none;
-			}
+	label {
+		font-size: 13px;
+		margin-bottom: 12px;
+
+		@include media-breakpoint-down(sm) {
+			width: 100%;
+			margin-bottom: 6px;
 		}
 	}
 
-	.rb-right {
-		> span {
-			display: block;
-			font-size: 13px;
-			margin-bottom: 12px;
-		}
+	.rb-right p {
+		margin-bottom: 0;
+		max-width: 80%;
 
-		> p {
-			margin-bottom: 0;
-			max-width: 80%;
-			text-align: justify;
-		}
-
-		> label {
-			display: inline-block;
-			padding: 5px 10px;
-			color: $white;
-			background: $primary;
-			font-size: 10px;
-			font-weight: 300;
-			text-transform: uppercase;
-			letter-spacing: 2px;
-			position: absolute;
-			top: 0;
-			right: 0;
-		}
-
-		@include media-breakpoint-down(md) {
-			> span {
-				width: 100%;
-				margin-bottom: 6px;
-			}
-
-			> p {
-				max-width: 100%;
-
-				input:not(:checked) + & {
-					display: none;
-				}
-			}
-
-			> label {
-				position: relative;
-				margin-bottom: 14px;
-				vertical-align: top;
-
-				&::after {
-					font-family: "Font Awesome 6 Free";
-					content: icon("caret-down");
-					margin-left: 1ch;
-
-					input:checked + & {
-						// Chevron up unicode
-						content: icon("caret-up");
-					}
-				}
-			}
+		@include media-breakpoint-down(sm) {
+			max-width: 100%;
 		}
 	}
 }
@@ -1319,7 +1277,7 @@ input[name="mobile"] {
 
 	@include background(4);
 
-	@include media-breakpoint-down(lg) {
+	@include media-breakpoint-down(md) {
 		margin-bottom: 10px;
 	}
 
@@ -1371,7 +1329,7 @@ input[name="mobile"] {
 
 	@include background(4);
 
-	@include media-breakpoint-down(lg) {
+	@include media-breakpoint-down(md) {
 		margin-bottom: 20px;
 	}
 
@@ -1413,18 +1371,35 @@ input[name="mobile"] {
 	}
 }
 
+p.note {
+	font-size: 0.75em;
+	margin-top: 3em;
+}
+
 .contact-form {
 	padding: 30px;
 
 	@include background(4);
 
-	@include media-breakpoint-down(lg) {
+	@include media-breakpoint-down(md) {
 		margin-bottom: 20px;
 	}
 
-	form + p {
-		font-size: 0.75em;
-		margin-top: 3em;
+	.form-control {
+		border-radius: 0;
+		box-shadow: none;
+		font-size: 14px;
+		height: calc(2em + 0.75rem + 2px);
+
+		@include theme($white, $dark) using ($color) {
+			color: $color;
+			border: 1px solid color.change($color, $alpha: 0.3);
+			background: if($color == $white, $black, $white);
+		}
+	}
+
+	textarea.form-control {
+		height: auto;
 	}
 }
 
@@ -1450,7 +1425,7 @@ input[name="mobile"] {
 		border: 5px solid $white;
 	}
 
-	@include media-breakpoint-down(md) {
+	@include media-breakpoint-down(sm) {
 		margin-top: 15px;
 	}
 
@@ -1461,7 +1436,7 @@ input[name="mobile"] {
 		&:before {
 			padding-top: 30%;
 
-			@include media-breakpoint-down(md) {
+			@include media-breakpoint-down(sm) {
 				padding-top: 55%;
 			}
 		}

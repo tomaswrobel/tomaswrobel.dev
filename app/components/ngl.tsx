@@ -29,27 +29,31 @@ const Form: FunctionComponent = () => (
 	<form onSubmit={submit}>
 		<div className="row gap-3">
 			<div className="col-md-12">
-				<select name="question" className="form-select" required>
-					<option value="anonymous">Send me anonymous messages!</option>
-					<option value="confessions">Send me anonymous confessions</option>
-					<option value="3words">Describe me in 3 words, anonymously</option>
-					<option value="neverhave">Send me a never have I ever, anonymously</option>
-					<option value="tbh">If you could change anything about me, what would it be?</option>
-				</select>
+				<div className="form-group">
+					<select name="question" className="form-control" lang="en" required>
+						<option value="anonymous">Send me anonymous messages!</option>
+						<option value="confessions">Send me anonymous confessions</option>
+						<option value="3words">Describe me in 3 words, anonymously</option>
+						<option value="neverhave">Send me a never have I ever, anonymously</option>
+						<option value="tbh">If you could change anything about me, what would it be?</option>
+					</select>
+				</div>
 			</div>
 			<div className="col-md-12">
-				<textarea
-					name="answer"
-					placeholder="Message *"
-					rows={6}
-					className="form-control"
-					required
-					style={{resize: "none"}}
-				/>
+				<div className="form-group">
+					<textarea
+						name="answer"
+						placeholder="Zpráva *"
+						rows={6}
+						className="form-control"
+						required
+						style={{resize: "none"}}
+					/>
+				</div>
 			</div>
 			<div className="col-md-12">
 				<div className="send">
-					<input className="btn" type="submit" value="Send message" />
+					<input className="btn" type="submit" value="Odeslat" />
 				</div>
 			</div>
 		</div>

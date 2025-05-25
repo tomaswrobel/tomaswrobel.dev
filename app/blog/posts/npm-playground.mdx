@@ -1,18 +1,18 @@
 export {default as img} from "../images/npm-playground.png";
-export const name = "NPM Playground is out!";
+export const name = "NPM Playground je tady!";
 export const author = "Tomáš Wróbel";
 export const date = new Date(2023, 5, 23);
-export const description =
-	"NPM Playground is a tool for developers who want to quickly test code online. It supports NPM packages, multiple files, and much more.";
+export const updated = new Date(2023, 9, 23);
+export const description = "NPM Playground je nástroj pro vývojáře, kteří si chtějí rychle otestovat kód online. Podporuje NPM balíčky, více souborů a mnoho dalšího.";
 
-There are many <q>code playgrounds</q> on the internet, but very few of them support NPM packages. And if they do, they
-are either paid or huge. That's why I decided to create NPM Playground.
+Na internetu je mnoho <q>code playgrounds</q>, ale minimum z nich podporuje NPM balíčky. A pokud ano, tak jsou buďto
+placené, nebo obrovské. Proto jsem se rozhodl vytvořit NPM Playground.
 
-<Button to="https://npm-playground.web.app">Launch NPM Playground</Button>
+<Button to="https://npm-playground.web.app">Spustit NPM Playground</Button>
 
-## NPM Package Support
+## Podpora NPM Balíčků
 
-You can import NPM packages using `import`, but not `require`.
+Můžete importovat NPM balíčky pomocí `import`, ale ne `require`.
 
 ```js
 import $ from "jquery";
@@ -20,17 +20,17 @@ import $ from "jquery";
 $("body").css("background-color", "#FF0");
 ```
 
-## Multiple File Support
+## Podpora Více Souborů
 
-NPM Playground supports multiple files that can be linked using ECMAScript `import` / `export`. But be careful &ndash;
-you must exclude these extensions:
+NPM Playground podporuje více souborů, které mohou být propojeny pomocí ECMAScript `import` / `export`. Ale buďte
+opatrní &ndash; musíte vyloučit tyto přípony:
 
 -   .js
 -   .jsx
 -   .ts
 -   .tsx
 
-So if there is a file called `counter.tsx`, the import must be `"./counter"`:
+Takže pokud existuje soubor s názvem `counter.tsx`, import musí být `"./counter"`:
 
 index.tsx
 
@@ -50,5 +50,5 @@ export default function Counter({count}) {
 
 ## Archivace projektu
 
-Project was archived in favor of [PlayGist](playgist.mdx). That means it won't receive updates, but it will still be
-available on [GitHub](https://github.com/tomaswrobel/npm-playgound).
+Projekt byl archivován ve prospěch [PlayGist](playgist.mdx). To znamená, že nebude dostávat aktualizace, ale bude stále
+k dispozici na [GitHubu](https://github.com/tomaswrobel/npm-playgound).

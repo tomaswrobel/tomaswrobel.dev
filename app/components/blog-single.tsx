@@ -12,9 +12,9 @@ const BlogSingle: FunctionComponent<BlogSingle.Props> = ({
 
 	return (
 		<div className="single-blog">
-			<div className="container">
+			<div className="container-sm">
 				<div className="blog-feature-img">
-					<Image src={img} title="" alt="" placeholder="blur" />
+					<Image draggable={false} src={img} title="" alt="" placeholder="blur" style={{maxWidth: "100%"}} />
 				</div>
 				<div className="row justify-content-center">
 					<div className="col-lg-8">
@@ -34,7 +34,7 @@ const BlogSingle: FunctionComponent<BlogSingle.Props> = ({
 									<>
 										<Icon name="check" style="solid" />
 										{"\t"}
-										Updated: {formatter.format(updated)}
+										Aktualizováno: {formatter.format(updated)}
 									</>
 								)}
 								<Post />

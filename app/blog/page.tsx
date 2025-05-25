@@ -4,7 +4,7 @@ import {data} from "components/blog";
 
 export const metadata: Metadata = {
 	title: "Tomáš Wróbel | Blog",
-	description: "Blog about web development, programming, and other interesting topics.",
+	description: "Blog o webovém vývoji a programování.",
 };
 
 export default async function Blog() {

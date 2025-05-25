@@ -3,8 +3,10 @@ import Link from "next/link";
 import {usePathname} from "next/navigation";
 import {DynamicMenu, StaticMenu} from "components/menu";
 import {type FunctionComponent, useEffect, useState} from "react";
+import Me from "../images/me.png";
 import Icon from "./fa-icon";
 import Back from "./back";
+import Image from "next/image";
 
 function switchColorScheme() {
 	const {dataset} = document.documentElement;
@@ -74,7 +76,7 @@ const Header: FunctionComponent<Header.Props> = () => {
 				<div className="h-100">
 					<div className="top">
 						<div>
-							<img src="/images/me.png" title="" alt="" />
+							<Image draggable={false} width={90} height={90} src={Me} title="" alt="" />
 						</div>
 						<h2>Tomáš</h2>
 					</div>

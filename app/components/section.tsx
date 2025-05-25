@@ -2,12 +2,13 @@ import type {FunctionComponent, ReactNode} from "react";
 import {array} from "utils";
 
 export const sections = array(
-	["pages.home", "Home"],
-	["pages.aboutMe", "About me", "about"],
-	["pages.certificates", "Certificates", "certificates"],
-	["pages.services", "Services", "services"],
+	["pages.home", "Domů"],
+	["pages.aboutMe", "O mně", "about"],
+	["pages.certificates", "Certifikáty", "certificates"],
+	["pages.experience", "Zkušenost", "experience"],
+	["pages.services", "Služby", "services"],
 	["pages.blog", "Blog", "blog"],
-	["pages.contact", "Contact", "contact"]
+	["pages.contact", "Kontakt", "contact"]
 );
 
 export type Section = (typeof sections)[number][0];
@@ -22,7 +23,7 @@ export const Section: FunctionComponent<Section.Props> = ({id, children}) => {
 	if (2 in section) {
 		return (
 			<section id={section[2]}>
-				<div className="container">
+				<div className="container-sm">
 					<div className="title">
 						<h2>{section[1]}</h2>
 					</div>

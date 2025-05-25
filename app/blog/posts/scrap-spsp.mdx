@@ -1,0 +1,52 @@
+import Image from "next/image";
+import diploma from "../images/spsp-diplom.jpg";
+export {default as img} from "../images/spsp.jpg";
+export const name = "Scrap uspěl na SPSP";
+export const date = new Date(2024, 3, 25);
+export const author = "Tomáš Wróbel";
+export const updated = new Date(2025, 1, 7);
+export const description =
+	"Scrap 4 uspěl na Soutěžní přehlídce studentských programů, kde získal cenu diváků i poroty.";
+
+{description} Tento úspěch je důkazem, že Scrap je skvělým nástrojem pro výuku programování.
+
+### Soutěžní přehlídka studentských programů
+
+<q>Soutěžní přehlídka studentských programů</q> (SPSP) je akce, která se koná každý rok a umožňuje studentům prezentovat
+své programy a projekty. Studenti mají možnost ukázat své dovednosti a získat zpětnou vazbu od odborníků a diváků (jiných
+soutěžících). Koná se na Gymnáziu Volgogradská Ostrava-Zábřeh a letos byl rekordní počet přihlášených programů, a již jsem
+se bál, že tentokrát neuspěji.
+
+### Scrap 4
+
+[Scrap](/blog/scrap.mdx), můj projekt, je alternativa Scratche, která umožňuje programovat i v textové podobě. Scrap 4
+je nejnovější verze Scrapu, která přináší mnoho nových funkcí a vylepšení. Mimo jiné podporuje TypeScript, což je velký
+krok vpřed oproti předchozím verzím. Tato verze vznikla asi týden před soutěží, takže jsem měl jen krátkou dobu na to,
+abych ji dokončil a vylepšil.
+
+Oproti Scrapu 3 podporuje následující:
+
+#### TypeScript
+
+Scrap 4 podporuje [TypeScript](https://typescriptlang.org), což znamená, že Scrap je nyní skutečně strong-typed jazyk.
+TypeScript je jazyk, který je kompilován do JavaScriptu. Je jen rozšířením JavaScriptu, takže vše, co umí JavaScript,
+umí i TypeScript. Pro Scrap to neznamenalo přítěž, protože už používal Babel, který má podporu TypeScriptu zabudovanou.
+
+#### Monaco Editor
+
+Scrap 4 používá editor z Visual Studia Code, který užití TypeScriptu ještě úročí. Pomáhá totiž s autocompletem a
+lintováním. Aby toho nebylo málo, Monaco editor je nastaven tak, aby barva textu odpovídala barvám bloku. (Děkuji
+spolužákovi Vítkovi za tento nápad.) Pro správný autocomplete jsem ale musel napsat vlastní TypeScript definice, což
+byla docela fuška. A to nejen pro Scrap engine, ale i pro ECMAScript API (jako jsou pole a čísla), protože by jinak
+Monaco editor umožnil šíleně komplikované struktury, které nelze převést do bloků, a ve Scrapu stejně nejsou potřeba
+(třídy, manipulace s DOM, ...).
+
+### Úspěch na SPSP
+
+Scrap získal cenu diváků. Znamenaje, že divákům se Scrap líbil nejvíce. A to je pro mě obrovská pocta. Musím dodat, že
+tradičně někteří soutěžící používají Scratch, takže Scrap byl pro ně novým zážitkem. A získal jsem i cenu poroty. Tu
+nakonec porota udělila všem poraženým z mé kategorie, protože podle nich byly všechny programy skvělé a byly takřka
+nesrovnatelné. Je těžké hodnotit středoškoláky, když každý použije jiný jazyk a je na jiné úrovni. Ale i tak jsem rád,
+že jsem alespoň před diváky zvítězil.
+
+<Image draggable={false} src={diploma} alt="Diploma" width={360} height={540} className="d-block mx-auto" />

@@ -1,37 +1,36 @@
 export {default as img} from "../images/playgist.png";
-export const name = "PlayGist is here!";
+export const name = "PlayGist je tady!";
 export const author = "Tomáš Wróbel";
 export const date = new Date(2023, 9, 23);
 export const description =
-	"PlayGist is a web-based code editor that replaces the existing NPM Playground. It allows you to create and run projects directly in the browser without the need for cloud storage. And if you want to save your work, you can easily export it to a GitHub Gist, from which the code can be run again.";
+	"PlayGist je webový editor kódu, který nahrazuje stávající NPM Playground. Umožňuje vytvářet a spouštět projekty přímo v prohlížeči bez nutnosti cloudového úložiště. A pokud chcete svou práci uložit, můžete ji snadno exportovat do GitHub Gistu, ze kterého lze kód znovu spustit.";
 
-PlayGist is a web-based code editor that replaces the existing [NPM Playground](npm-playground.mdx). It allows you to
-create and run projects directly in the browser without the need for cloud storage. And if you want to save your work,
-you can easily export it to a GitHub Gist, from which the code can be run again.
+PlayGist je webový editor kódu, který nahrazuje stávající [NPM Playground](npm-playground.mdx). Umožňuje vám vytvářet a
+spouštět projekty přímo v prohlížeči bez nutnosti cloudového úložiště. A pokud chcete svou práci uložit, můžete ji
+snadno exportovat do GitHub Gistu, ze kterého lze kód znovu spustit.
 
-<Button to="https://playgist.vercel.app">Launch PlayGist</Button>
+<Button to="https://playgist.vercel.app">Spustit PlayGist</Button>
 
-### What's new?
+### Co je nového?
 
--   **Evolution from "NPM Playground":** PlayGist is similar to its predecessor, "NPM Playground". However, it brings
-    significant improvements by removing the cloud storage limitations that hindered its predecessor. With PlayGist, you
-    can code without worrying about storage limits, giving you the freedom to create and run your Front-End projects
-    efficiently.
--   **Reprogrammed design:** The user interface may seem familiar, but it's not just a simple facelift. PlayGist has
-    undergone a complete reprogramming, transitioning from the Lit framework to Next.js. This transformation ensures a
-    more robust and smoother experience, offering you a powerful development environment directly in your browser.
--   **GitHub API Rate Limit:** It's important to note that PlayGist operates within the limits of the GitHub API.
-    However, we have a solution for you. Simply log in to your GitHub account, and you can bypass these limitations and
-    utilize the full potential of PlayGist.
+-   **Evoluce z "NPM Playground":** PlayGist je podobný svému předchůdci, "NPM Playground". Nicméně, přináší významná
+    vylepšení odstraněním omezení cloudového úložiště, které bránily jeho předchůdci. S PlayGist můžete kódovat bez obav
+    z omezení úložiště, což vám dává svobodu vytvářet a spouštět vaše Front-End projekty efektivně.
+-   **Přeprogramovaný design:** Uživatelské rozhraní se může zdát povědomé, ale není to jen jednoduchý facelift.
+    PlayGist prošel kompletním přeprogramováním, přechodem z Lit frameworku na Next.js. Tato transformace zajišťuje
+    robustnější a plynulejší zážitek, který vám nabízí výkonné vývojové prostředí přímo ve vašem prohlížeči.
+-   **GitHub API Rate Limit:** Je důležité si uvědomit, že PlayGist funguje v rámci limitů GitHub API. Nicméně, máme pro
+    vás řešení. Jednoduše se přihlaste ke svému GitHub účtu a můžete obejít tato omezení a využít plný potenciál
+    PlayGistu.
 
-### Key features
+### Klíčové vlastnosti
 
--   **Flexible file creation:** You can easily create JavaScript (JS), JSX, TypeScript (TS), and TypeScript JSX (TSX)
-    files directly in PlayGist. Although you cannot create folders due to our integration with GitHub Gists, you can
-    import these files without any issues. Just remember to keep the file extension when importing (e.g.,
+-   **Flexibilní vytváření souborů:** Můžete snadno vytvářet soubory JavaScript (JS), JSX, TypeScript (TS) a TypeScript
+    JSX (TSX) přímo v PlayGistu. Ačkoli nemůžete vytvářet složky kvůli naší integraci s GitHub Gisty, můžete importovat
+    tyto soubory bez jakýchkoli problémů. Jen nezapomeňte zachovat příponu souboru při importu (např.
     `import "./component-a.tsx"`).
--   **ES modules and Top-Level Await:** PlayGist supports modern development practices. You must use ES modules, and we
-    fully support top-level `await`. This ensures that your code remains up-to-date and ready for the latest web
-    standards.
--   **NPM package support: Bare Specifiers:** Take advantage of NPM packages compatible with browsers. PlayGist allows
-    you to use bare specifiers for these packages, which will be automatically resolved from a Content Delivery Network.
+-   **ES moduly a Top-Level Await:** PlayGist podporuje moderní vývojové postupy. Musíte používat ES moduly a my plně
+    podporujeme top-level `await`. To zajišťuje, že váš kód zůstane aktuální a připravený pro nejnovější webové
+    standardy.
+-   **Podpora NPM balíčků: Bare Specifiers:** Využijte výhod NPM balíčků kompatibilních s prohlížeči. PlayGist vám
+    umožňuje používat bare specifiers pro tyto balíčky, které budou automaticky vyřešeny z Content Delivery Network.

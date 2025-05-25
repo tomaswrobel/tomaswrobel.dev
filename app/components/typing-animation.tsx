@@ -21,7 +21,7 @@ const TypingAnimation: FunctionComponent<TypingAnimation.Props> = ({strings}) =>
 		};
 	}, [strings]);
 
-	return <span id="type-it" className="subtitle subtitle-typed" translate="no" ref={ref} />;
+	return <span id="type-it" className="subtitle subtitle-typed" translate="no" aria-label={strings[0]} ref={ref} />;
 };
 
 declare namespace TypingAnimation {

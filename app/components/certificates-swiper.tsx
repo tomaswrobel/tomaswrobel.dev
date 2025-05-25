@@ -13,7 +13,7 @@ import Flutter from "certificates/images/flutter.png";
 import ReactRedux from "certificates/images/react-redux.png";
 import CSharp from "certificates/images/csharp.png";
 
-const CertificatesSwiper: FunctionComponent = () => (
+const certifikátsSwiper: FunctionComponent = () => (
 	<>
 		<Swiper
 			modules={[Autoplay, Pagination, A11y]}
@@ -32,35 +32,57 @@ const CertificatesSwiper: FunctionComponent = () => (
 			}}
 		>
 			<SwiperSlide className="document">
-				<Image src={JavaScript} alt="JavaScript Certificate" loading="lazy" fill placeholder="blur" />
-			</SwiperSlide>
-			<SwiperSlide className="document">
-				<Image src={HTML} alt="HTML Certificate" loading="lazy" fill placeholder="blur" />
-			</SwiperSlide>
-			<SwiperSlide className="document">
-				<Image src={CSS} alt="CSS Certificate" loading="lazy" fill placeholder="blur" />
-			</SwiperSlide>
-			<SwiperSlide className="document">
-				<Image src={Rust} alt="Rust Certificate" loading="lazy" fill placeholder="blur" />
-			</SwiperSlide>
-			<SwiperSlide className="document">
-				<Image src={Flutter} alt="Flutter Certificate" loading="lazy" fill placeholder="blur" />
-			</SwiperSlide>
-			<SwiperSlide className="document">
-				<Image src={ReactRedux} alt="React Certificate" loading="lazy" fill placeholder="blur" />
-			</SwiperSlide>
-			<SwiperSlide className="document">
 				<Image
-					src={CSharp}
-					alt="C# Certificate"
+					draggable={false}
+					src={JavaScript}
+					alt="JavaScript certifikát"
 					loading="lazy"
 					fill
 					placeholder="blur"
-					className="opacity-25"
+				/>
+			</SwiperSlide>
+			<SwiperSlide className="document">
+				<Image draggable={false} src={HTML} alt="HTML certifikát" loading="lazy" fill placeholder="blur" />
+			</SwiperSlide>
+			<SwiperSlide className="document">
+				<Image draggable={false} src={CSS} alt="CSS certifikát" loading="lazy" fill placeholder="blur" />
+			</SwiperSlide>
+			<SwiperSlide className="document">
+				<Image draggable={false} src={Rust} alt="Rust certifikát" loading="lazy" fill placeholder="blur" />
+			</SwiperSlide>
+			<SwiperSlide className="document">
+				<Image
+					draggable={false}
+					src={Flutter}
+					alt="Flutter certifikát"
+					loading="lazy"
+					fill
+					placeholder="blur"
+				/>
+			</SwiperSlide>
+			<SwiperSlide className="document">
+				<Image
+					draggable={false}
+					src={ReactRedux}
+					alt="React certifikát"
+					loading="lazy"
+					fill
+					placeholder="blur"
+				/>
+			</SwiperSlide>
+			<SwiperSlide className="document">
+				<Image
+					draggable={false}
+					src={CSharp}
+					alt="C# certifikát"
+					loading="lazy"
+					fill
+					placeholder="blur"
+					style={{opacity: 0.25}}
 				/>
 				<div className="text-center position-relative z-1 border-primary border border-5 d-flex align-items-center justify-content-center h-100">
 					<Link className="btn" href="/certificates">
-						See all certificates
+						Všechny certifikáty
 					</Link>
 				</div>
 			</SwiperSlide>
@@ -69,4 +91,4 @@ const CertificatesSwiper: FunctionComponent = () => (
 	</>
 );
 
-export default CertificatesSwiper;
+export default certifikátsSwiper;

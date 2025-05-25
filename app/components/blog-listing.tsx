@@ -25,7 +25,7 @@ export const BlogListing: FunctionComponent<BlogListing.Props> = ({data, sort = 
 
 	return (
 		<div className="blog-listing">
-			<div className="container">
+			<div className="container-sm">
 				<div className="title text-center">
 					<h1>{heading}</h1>
 				</div>
@@ -35,7 +35,15 @@ export const BlogListing: FunctionComponent<BlogListing.Props> = ({data, sort = 
 							<div className="blog-grid">
 								<div className="blog-img">
 									<Link href={url} aria-label={name}>
-										<Image loading="lazy" placeholder="blur" src={img} title="" alt="" />
+										<Image
+											draggable={false}
+											loading="lazy"
+											placeholder="blur"
+											src={img}
+											title=""
+											alt=""
+											style={{maxWidth: "100%"}}
+										/>
 									</Link>
 								</div>
 								<div className="blog-info">

@@ -1,126 +1,124 @@
 export {default as img} from "../images/scrap.png";
-export const name = "Scrap is the way";
+export const name = "Scrap je tady!";
 export const author = "Tomáš Wróbel";
 export const date = new Date(2024, 8, 4);
 export const updated = new Date(2025, 1, 7);
-export const description = "Scrap is a tool that simplifies the transition from block-based programming to JavaScript.";
+export const description = "Scrap je nástroj, který zjednodušuje přechod z blokového programování na JavaScript.";
 
-### The Story of Scrap
+### Příběh Scrapu
 
-My coding journey began with [Scratch](https://scratch.mit.edu/), an intuitive platform that introduced me to the world
-of programming. Yet, as I ventured into JavaScript, I faced a formidable challenge. While Scratch had provided a solid
-foundation, the transition to JavaScript felt like a daunting leap. This challenge ignited the idea for **Scrap**, a
-tool designed to simplify the transition from block-based programming to JavaScript.
+Moje cesta k programování začala se [Scratchem](https://scratch.mit.edu/), intuitivní platformou, která mě uvedla do
+světa programování. Nicméně, když jsem se pustil do JavaScriptu, čelil jsem obrovské výzvě. Zatímco Scratch poskytl
+solidní základ, přechod na JavaScript byl jako skok do neznáma. Tato výzva zažehla myšlenku pro **Scrap**, nástroj
+navržený pro zjednodušení přechodu z blokového programování na JavaScript.
 
-<Button to="https://scrap.tomaswrobel.dev">Download Scrap</Button>
+<Button to="https://scrap.tomaswrobel.dev">Stáhnout Scrap</Button>
 
-### Features
+### Vlastnosti
 
-1. **Block-based coding** &ndash; While Scrap encourages the transition to text-based programming, it supports both
-   block and text editors.
-2. **Strongly typed** &ndash; In the text editor, Scrap supports TypeScript type annotations, which provide type safety.
-   In the block editor, Scrap won't allow you to connect blocks with incompatible types.
-3. **Blocks &#x21c6; Code** &ndash; Scrap allows you to convert blocks to code and vice versa. This feature is
-   especially useful for learning JavaScript syntax.
-4. **No VM, no interpreter** &ndash; Scrap compiles your code to JavaScript, which means that you can run it anywhere,
-   without Scrap.
-5. **HTML output** &ndash; Scrap allows you to export your code as HTML, which means that you can share your projects
-   with anyone, anywhere.
-6. **Open-source** &ndash; Scrap is open-source, which means that you can contribute to it and make it better.
+1. **Blokové programování** &ndash; Zatímco Scrap podporuje přechod na textové programování, podporuje blokové i textové
+   editory.
+2. **Silně typovaný** &ndash; V textovém editoru Scrap podporuje typové anotace TypeScriptu, které poskytují typovou
+   bezpečnost. V blokovém editoru Scrap neumožní propojit bloky s nekompatibilními typy.
+3. **Bloky &#x21c6; Kód** &ndash; Scrap umožňuje převádět bloky na kód a naopak. Tato funkce je užitečná zejména pro
+   učení syntaxe JavaScriptu.
+4. **Žádný VM, žádný interpret** &ndash; Scrap kompiluje váš kód do JavaScriptu, což znamená, že jej můžete spustit
+   kdekoliv, bez Scrapu.
+5. **HTML výstup** &ndash; Scrap umožňuje exportovat váš kód jako HTML, což znamená, že můžete sdílet své projekty s
+   kýmkoliv a kdekoliv.
+6. **Open-source** &ndash; Scrap je open-source, což znamená, že můžete přispět k jeho vývoji a vylepšit jej.
 
-### Code × Text
+### Kód × Text
 
-<q>ScrapScript</q> is a code name for the problem of the incompatibility. It aims to design an ECMAScript subset, which can
-be converted to blocks and back **as easy as possible**.
+<q>ScrapScript</q> je kódové označení pro problém nekompatibility. Jeho cílem je navrhnout podmnožinu ECMAScriptu, kterou
+lze převést na bloky a zpět **co nejsnadněji**.
 
-It's been obvious since the very beginning that ScrapScript needs to be typed, as not all blocks are compatible by
-shape. Previously, this was handled via JSDoc but
-[when the Monaco Editor was introduced in Scrap 4](https://github.com/tomaswrobel/scrap/releases/tag/v4.0.0), TypeScript
-was way more helpful.
+Od samého začátku bylo zřejmé, že ScrapScript musí být typovaný, protože ne všechny bloky jsou kompatibilní tvarem.
+Dříve to bylo řešeno pomocí JSDoc, ale
+[když byl v Scrapu 4 představen Monaco Editor](https://github.com/tomaswrobel/scrap/releases/tag/v4.0.0), TypeScript byl
+mnohem užitečnější.
 
-However, not all JavaScript features will be supported. **Classes**, **symbols**, **regular expressions**, **modules**,
-**sets & maps**, **undefined**, **template literals**, and many more...
+Nicméně, ne všechny funkce JavaScriptu budou podporovány. **Třídy**, **symboly**, **regulární výrazy**, **moduly**,
+**množiny a mapy**, **undefined**, **template literals** a mnoho dalších...
 
-And some equivalent features lose their different syntax when converted. An example might be:
+A některé ekvivalentní funkce ztratí svou odlišnou syntaxi při převodu. Příkladem může být:
 
 ```js
 object.toString();
-// After conversion to blocks and back
+// Po převodu na bloky a zpět
 String(object);
 ```
 
-Thanks to [#158](https://github.com/tomaswrobel/scrap/issues/158), I realised that `Date.prototype.getTime()` **can** be
-implemented.
+Díky [#158](https://github.com/tomaswrobel/scrap/issues/158) jsem si uvědomil, že `Date.prototype.getTime()` **lze**
+implementovat.
 
 ```js
-// These are equivalent:
+// Tyto jsou ekvivalentní:
 object.valueOf();
-Number(object); // default Scrap syntax
+Number(object); // výchozí syntaxe Scrapu
 +object;
-object.getTime(); // for dates, #158
+object.getTime(); // pro data, #158
 ```
 
-### The inspiration
+### Inspirace
 
-The name Scrap is a combination of the words [Scratch](https://scratch.mit.edu/) and [Snap](https://snap.berkeley.edu/),
-two block-based programming languages that inspired me to create Scrap. Snap gave me an idea to make the IDE advanced
-and powerful, while Scratch inspired me to make it intuitive and easy to use.
+Název Scrap je kombinací slov [Scratch](https://scratch.mit.edu/) a [Snap](https://snap.berkeley.edu/), dvou blokových
+programovacích jazyků, které mě inspirovaly k vytvoření Scrapu. Snap mi dal nápad, aby bylo IDE pokročilé a výkonné,
+zatímco Scratch mě inspiroval k tomu, aby bylo intuitivní a snadno použitelné.
 
-### Under the hood
+### Pod pokličkou
 
-#### The technology
+#### Technologie
 
-Scrap is coded with [Rust](https://www.rust-lang.org/), [TypeScript](https://www.typescriptlang.org/), and
-[Sass](https://sass-lang.com/).
+Scrap je kódován pomocí [Rustu](https://www.rust-lang.org/), [TypeScriptu](https://www.typescriptlang.org/) a
+[Sassu](https://sass-lang.com/).
 
-Scrap consists of HTML frontend and Rust backend. The Rust backend handles the underlying logic, and also the
-compilation of user code to JavaScript, with the help of [SWC](https://swc.rs/). The frontend is built with TypeScript
-and Sass and uses [Blockly](https://developers.google.com/blockly) as a block editor. The code editor is powered by
-[Monaco Editor](https://microsoft.github.io/monaco-editor/).
+Scrap se skládá z HTML frontendu a Rust backendu. Rust backend zpracovává základní logiku a také kompilaci uživatelského
+kódu do JavaScriptu, s pomocí [SWC](https://swc.rs/). Frontend je postaven pomocí TypeScriptu a Sassu a používá
+[Blockly](https://developers.google.com/blockly) jako blokový editor. Editor kódu je poháněn
+[Monaco Editorem](https://microsoft.github.io/monaco-editor/).
 
-Scrap uses technology based on [BlockLike.js](https://blocklike.org) as an engine (not VM).
+Scrap používá technologii založenou na [BlockLike.js](https://blocklike.org) jako engine (ne VM).
 
-#### Scrap engine and SWC
+#### Scrap engine a SWC
 
-Scrap Engine is based on BlockLike.js; these days, the code bases are totally different, and the features differ as
-well.
+Scrap Engine je založen na BlockLike.js; v dnešní době jsou kódové základny zcela odlišné a funkce se také liší.
 
-As Scrap doesn't have a VM, somehow it needs to delay block execution (like Scratch does), and control code execution.
-The compiler handles most of that, but still, some things must be done at runtime – setters, getters, and throwing
-uncatchable errors do the job.
+Protože Scrap nemá VM, nějakým způsobem potřebuje zpozdit provádění bloků (jako to dělá Scratch) a řídit provádění kódu.
+Kompilátor se stará o většinu z toho, ale stále je třeba něco udělat za běhu – settery, gettery a vyhazování
+nezachytitelných chyb to dělají.
 
-Scrap comes up with a SWC plugin, which provides users better coding experience, as their code can be <q>less ugly</q>.
-That means, if one includes [Scrap Engine](https://npmjs.com/package/scrap-engine) and uses just the code written in
-IDE, it won't work.
+Scrap přichází s pluginem SWC, který uživatelům poskytuje lepší zážitek z kódování, protože jejich kód může být <q>méně
+ošklivý</q>. To znamená, že pokud někdo zahrne [Scrap Engine](https://npmjs.com/package/scrap-engine) a použije pouze
+kód napsaný v IDE, nebude to fungovat.
 
-Let's see how the engine and SWC cooperate:
+Podívejme se, jak engine a SWC spolupracují:
 
 -   Async / await
-    -   Scrap Engine's methods are asynchronous
-    -   In IDE, users don't even notice, as SWC adds the necessary keywords
--   Setters / getters
-    -   Scrap Engine needs to have methods instead of getters and setters (`self.getX()` and `self.setX(10)`
-    -   In IDE, users use the more familiar syntax: `self.x = 10`
--   Control flow
-    -   When the Scrap engine needs to, or is told to stop the project, it throws `Scrap.StopError`
-    -   SWC makes sure users cannot catch the error, as this would lose the effect
--   On-screen variables
-    -   Scrap engine allows to have Scratch-like on-screen variables
-    -   SWC allows users to declare them inside the `Variables` interface and rewrites the setters and getters
--   SWC also handles the conversion between blocks and text
+    -   Metody Scrap Engine jsou asynchronní
+    -   V IDE si uživatelé ani nevšimnou, protože SWC přidává potřebná klíčová slova
+-   Settery / gettery
+    -   Scrap Engine potřebuje mít metody místo getterů a setterů (`self.getX()` a `self.setX(10)`)
+    -   V IDE uživatelé používají známější syntaxi: `self.x = 10`
+-   Řízení toku
+    -   Když Scrap engine potřebuje, nebo je mu řečeno, aby zastavil projekt, vyhodí `Scrap.StopError`
+    -   SWC zajišťuje, že uživatelé nemohou zachytit chybu, protože by to ztratilo účinek
+-   Proměnné na obrazovce
+    -   Scrap engine umožňuje mít proměnné na obrazovce jako ve Scratchi
+    -   SWC umožňuje uživatelům deklarovat je uvnitř rozhraní `Variables` a přepisuje settery a gettery
+-   SWC také zpracovává převod mezi bloky a textem
 
 #### Monaco Editor
 
-Monaco Editor is extended, so it provides:
+Monaco Editor je rozšířen, takže poskytuje:
 
--   TypeScript IntelliSense tied to the Scrap environment
--   warning about the block-incompatible syntax
--   color pickers when using Scrap's color functions
--   syntax highlighting mirrors the block colors
+-   TypeScript IntelliSense svázaný s prostředím Scrapu
+-   varování o syntaxi nekompatibilní s bloky
+-   výběr barev při použití barevných funkcí Scrapu
+-   zvýraznění syntaxe zrcadlí barvy bloků
 
-### Conclusion
+### Závěr
 
-Scrap is a tool that simplifies the transition from block-based programming to JavaScript. It is designed to be
-intuitive and easy to use, while also providing advanced features for more experienced users. Scrap is open-source,
-which means that you can contribute to it and make it better. If you are interested in contributing to Scrap, please get
-in touch with me.
+Scrap je nástroj, který zjednodušuje přechod z blokového programování na JavaScript. Je navržen tak, aby byl intuitivní
+a snadno použitelný, a zároveň poskytoval pokročilé funkce pro zkušenější uživatele. Scrap je open-source, což znamená,
+že můžete přispět k jeho vývoji a vylepšit jej. Pokud máte zájem přispět k vývoji Scrapu, kontaktujte mě.

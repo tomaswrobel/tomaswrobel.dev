@@ -1,4 +1,6 @@
 import {type FunctionComponent, useId} from "react";
+import MePng from "../images/me.png";
+import Image from "next/image";
 
 const freeCodeCamp: FunctionComponent = () => (
 	<div className="avatar">
@@ -67,7 +69,7 @@ const ProgrammingHub: FunctionComponent = () => {
 
 const Me: FunctionComponent = () => (
 	<div className="avatar rounded-circle flex-shrink-0">
-		<img src="/images/me.png" title="" alt="" />
+		<Image draggable={false} width={45} height={45} src={MePng} title="" alt="" />
 	</div>
 );
 

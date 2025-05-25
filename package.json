@@ -15,7 +15,7 @@
 	},
 	"dependencies": {
 		"@fortawesome/fontawesome-free": "6.7.2",
-		"bootstrap": "5.3.6",
+		"bootstrap": "4.6.2",
 		"clsx": "2.1.1",
 		"et-line": "1.0.1",
 		"highlight.js": "11.11.1",
@@ -32,6 +32,7 @@
 		"@mdx-js/loader": "3.1.0",
 		"@mdx-js/react": "3.1.0",
 		"@next/mdx": "15.3.2",
+		"@svgr/webpack": "^8.1.0",
 		"@types/mdx": "2.0.13",
 		"@types/node": "22.15.18",
 		"@types/react": "19.1.4",
@@ -49,5 +50,5 @@
 			"@next/next/no-img-element": "off"
 		}
 	},
-	"packageManager": "pnpm@10.10.0"
+	"packageManager": "pnpm@10.11.0"
 }

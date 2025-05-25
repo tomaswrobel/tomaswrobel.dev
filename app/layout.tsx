@@ -24,7 +24,7 @@ const rubik = local({
 });
 
 const RootLayout: FunctionComponent<PropsWithChildren> = ({children}) => (
-	<html lang="en">
+	<html lang="cs">
 		<body className={rubik.className}>
 			<Header />
 			<main>{children}</main>
