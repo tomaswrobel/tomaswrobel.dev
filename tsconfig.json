@@ -1,7 +1,6 @@
 {
 	"compilerOptions": {
-		"target": "ES2015",
-		"lib": ["ES2015", "DOM", "DOM.Iterable"],
+		"target": "ESNext",
 		"allowJs": true,
 		"skipLibCheck": true,
 		"strict": true,
@@ -19,7 +18,12 @@
 			{
 				"name": "next"
 			}
-		]
+		],
+		"types": [
+			"next",
+			"next/image-types/global",
+		],
+		"lib": ["dom", "dom.iterable", "esnext"]
 	},
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
 	"exclude": ["node_modules"],

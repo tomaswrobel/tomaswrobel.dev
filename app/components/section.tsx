@@ -5,10 +5,10 @@ export const sections = array(
 	["pages.home", "Domů"],
 	["pages.aboutMe", "O mně", "about"],
 	["pages.certificates", "Certifikáty", "certificates"],
-	["pages.experience", "Zkušenost", "experience"],
+	["pages.experience", "Zkušenosti", "experience"],
 	["pages.services", "Služby", "services"],
 	["pages.blog", "Blog", "blog"],
-	["pages.contact", "Kontakt", "contact"]
+	["pages.contact", "Kontakt", "contact"],
 );
 
 export type Section = (typeof sections)[number][0];

@@ -11,7 +11,7 @@ export const contentType = "image/png";
 // Image generation
 export default async function Icon() {
 	return new ImageResponse(
-		( 
+		(
 			<div
 				style={{
 					color: "white",
@@ -42,6 +42,6 @@ export default async function Icon() {
 					name: "Leckerli One",
 				},
 			],
-		}
+		},
 	);
 }

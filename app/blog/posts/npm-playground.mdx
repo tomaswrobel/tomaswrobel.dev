@@ -3,7 +3,8 @@ export const name = "NPM Playground je tady!";
 export const author = "Tomáš Wróbel";
 export const date = new Date(2023, 5, 23);
 export const updated = new Date(2023, 9, 23);
-export const description = "NPM Playground je nástroj pro vývojáře, kteří si chtějí rychle otestovat kód online. Podporuje NPM balíčky, více souborů a mnoho dalšího.";
+export const description =
+	"NPM Playground je nástroj pro vývojáře, kteří si chtějí rychle otestovat kód online. Podporuje NPM balíčky, více souborů a mnoho dalšího.";
 
 Na internetu je mnoho <q>code playgrounds</q>, ale minimum z nich podporuje NPM balíčky. A pokud ano, tak jsou buďto
 placené, nebo obrovské. Proto jsem se rozhodl vytvořit NPM Playground.
@@ -25,10 +26,10 @@ $("body").css("background-color", "#FF0");
 NPM Playground podporuje více souborů, které mohou být propojeny pomocí ECMAScript `import` / `export`. Ale buďte
 opatrní &ndash; musíte vyloučit tyto přípony:
 
--   .js
--   .jsx
--   .ts
--   .tsx
+- .js
+- .jsx
+- .ts
+- .tsx
 
 Takže pokud existuje soubor s názvem `counter.tsx`, import musí být `"./counter"`:
 

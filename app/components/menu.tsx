@@ -2,55 +2,49 @@
 import clsx from "clsx";
 import Link from "next/link";
 import {useEffect, useState, type FunctionComponent} from "react";
-import {sections, type Section} from "./section";
+import {sections} from "./section";
 
-export const DynamicMenu: FunctionComponent = () => {
+const Menu: FunctionComponent<{forPath: string}> = ({forPath}) => {
 	const [active, setActive] = useState<string>();
 
 	useEffect(() => {
-		function scroll() {
-			let current = "";
+		if (forPath === "/") {
+			function scroll() {
+				let current = "";
 
-			for (const section of document.querySelectorAll("section")) {
-				const sectionTop = section.offsetTop;
-				const sectionHeight = section.clientHeight;
-				if (window.scrollY >= sectionTop - sectionHeight / 3) {
-					current = section.getAttribute("id") || "";
+				for (const section of document.querySelectorAll("section")) {
+					const sectionTop = section.offsetTop;
+					const sectionHeight = section.clientHeight;
+					if (window.scrollY >= sectionTop - sectionHeight / 3) {
+						current = section.getAttribute("id") || "";
+					}
 				}
+
+				setActive(current);
 			}
 
-			setActive(current);
+			window.addEventListener("scroll", scroll);
+			window.requestAnimationFrame(scroll);
+
+			return function () {
+				window.removeEventListener("scroll", scroll);
+			};
+		} else {
+			setActive(forPath.slice(1));
 		}
-
-		window.addEventListener("scroll", scroll);
-		window.requestAnimationFrame(scroll);
-
-		return function () {
-			window.removeEventListener("scroll", scroll);
-		};
-	}, []);
+	}, [forPath]);
 
 	return (
 		<ul className="nav">
 			{sections.map(([, text, href = ""]) => (
 				<li key={href}>
-					<a href={"#" + href} className={clsx({active: active === href})}>
+					<Link href={"/#" + href} className={clsx({active: active === href})}>
 						<span>{text}</span>
-					</a>
+					</Link>
 				</li>
 			))}
 		</ul>
 	);
 };
 
-export const StaticMenu: FunctionComponent<{active: Section}> = ({active}) => (
-	<ul className="nav">
-		{sections.map(([id, text, href]) => (
-			<li key={id} className={clsx({active: active === id})}>
-				<Link href={href ? `/#${href}` : "/"}>
-					<span>{text}</span>
-				</Link>
-			</li>
-		))}
-	</ul>
-);
+export default Menu;

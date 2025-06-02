@@ -30,8 +30,8 @@ navržený pro zjednodušení přechodu z blokového programování na JavaScrip
 
 ### Kód × Text
 
-<q>ScrapScript</q> je kódové označení pro problém nekompatibility. Jeho cílem je navrhnout podmnožinu ECMAScriptu, kterou
-lze převést na bloky a zpět **co nejsnadněji**.
+<q>ScrapScript</q> je kódové označení pro problém nekompatibility. Jeho cílem je navrhnout podmnožinu ECMAScriptu,
+kterou lze převést na bloky a zpět **co nejsnadněji**.
 
 Od samého začátku bylo zřejmé, že ScrapScript musí být typovaný, protože ne všechny bloky jsou kompatibilní tvarem.
 Dříve to bylo řešeno pomocí JSDoc, ale
@@ -94,28 +94,28 @@ kód napsaný v IDE, nebude to fungovat.
 
 Podívejme se, jak engine a SWC spolupracují:
 
--   Async / await
-    -   Metody Scrap Engine jsou asynchronní
-    -   V IDE si uživatelé ani nevšimnou, protože SWC přidává potřebná klíčová slova
--   Settery / gettery
-    -   Scrap Engine potřebuje mít metody místo getterů a setterů (`self.getX()` a `self.setX(10)`)
-    -   V IDE uživatelé používají známější syntaxi: `self.x = 10`
--   Řízení toku
-    -   Když Scrap engine potřebuje, nebo je mu řečeno, aby zastavil projekt, vyhodí `Scrap.StopError`
-    -   SWC zajišťuje, že uživatelé nemohou zachytit chybu, protože by to ztratilo účinek
--   Proměnné na obrazovce
-    -   Scrap engine umožňuje mít proměnné na obrazovce jako ve Scratchi
-    -   SWC umožňuje uživatelům deklarovat je uvnitř rozhraní `Variables` a přepisuje settery a gettery
--   SWC také zpracovává převod mezi bloky a textem
+- Async / await
+    - Metody Scrap Engine jsou asynchronní
+    - V IDE si uživatelé ani nevšimnou, protože SWC přidává potřebná klíčová slova
+- Settery / gettery
+    - Scrap Engine potřebuje mít metody místo getterů a setterů (`self.getX()` a `self.setX(10)`)
+    - V IDE uživatelé používají známější syntaxi: `self.x = 10`
+- Řízení toku
+    - Když Scrap engine potřebuje, nebo je mu řečeno, aby zastavil projekt, vyhodí `Scrap.StopError`
+    - SWC zajišťuje, že uživatelé nemohou zachytit chybu, protože by to ztratilo účinek
+- Proměnné na obrazovce
+    - Scrap engine umožňuje mít proměnné na obrazovce jako ve Scratchi
+    - SWC umožňuje uživatelům deklarovat je uvnitř rozhraní `Variables` a přepisuje settery a gettery
+- SWC také zpracovává převod mezi bloky a textem
 
 #### Monaco Editor
 
 Monaco Editor je rozšířen, takže poskytuje:
 
--   TypeScript IntelliSense svázaný s prostředím Scrapu
--   varování o syntaxi nekompatibilní s bloky
--   výběr barev při použití barevných funkcí Scrapu
--   zvýraznění syntaxe zrcadlí barvy bloků
+- TypeScript IntelliSense svázaný s prostředím Scrapu
+- varování o syntaxi nekompatibilní s bloky
+- výběr barev při použití barevných funkcí Scrapu
+- zvýraznění syntaxe zrcadlí barvy bloků
 
 ### Závěr
 

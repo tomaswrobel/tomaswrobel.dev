@@ -71,7 +71,7 @@ const HomePage: FunctionComponent = async () => (
 				<div className="col-lg-6 mt-1 pb-1">
 					<div className="about-info">
 						<h3>
-							Skillful programmer with <Icon name="heart" style="solid" label="Love" /> for web
+							Programátor se <Icon name="heart" style="solid" label="Love" /> pro web
 						</h3>
 						<p>
 							Hello World v Javě jsem napsal, když mi bylo 11. Již ve 12 jsem přičichl k webu. Ve volném
@@ -125,7 +125,7 @@ const HomePage: FunctionComponent = async () => (
 				</Resume>
 				<Resume>
 					<div className="col-sm-3 col-md-3 col-xl-2">
-						<div className="rb-left">
+						<div className="resume-box-left">
 							<Fastest />
 						</div>
 					</div>
@@ -138,10 +138,6 @@ const HomePage: FunctionComponent = async () => (
 			</div>
 		</Section>
 		<Section id="pages.services">
-			<div className="alert alert-primary" role="alert">
-				Zakázky nyní nepříjímám. Chcete webovou aplikaci nebo web na míru? Zkuste{" "}
-				<a href="https://fastest.cz">Fastest</a>
-			</div>
 			<div className="row">
 				<div className="col-md-6 mt-1 pb-1">
 					<div className="feature-box">
@@ -150,7 +146,7 @@ const HomePage: FunctionComponent = async () => (
 							<h4>Responzivní weby</h4>
 							<p>
 								Webové stránky, které vytvořím, budou vypadat dobře na všech zařízeních. Od mobilu až po
-								počítač. Nad to nenadužívám JavaScript, protože nemusím.
+								počítač. Nad to nenadužívám JavaScript, vždy hledám nejoptimalnější řešení.
 							</p>
 						</div>
 					</div>

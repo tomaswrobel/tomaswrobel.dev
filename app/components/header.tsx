@@ -1,12 +1,12 @@
 "use client";
 import Link from "next/link";
 import {usePathname} from "next/navigation";
-import {DynamicMenu, StaticMenu} from "components/menu";
+import Menu from "components/menu";
 import {type FunctionComponent, useEffect, useState} from "react";
 import Me from "../images/me.png";
 import Icon from "./fa-icon";
-import Back from "./back";
 import Image from "next/image";
+import Back from "./back";
 
 function switchColorScheme() {
 	const {dataset} = document.documentElement;
@@ -54,9 +54,9 @@ const Header: FunctionComponent<Header.Props> = () => {
 
 	return (
 		<header style={{"--sidebar-offset": sidebarOffset}}>
-			<label className="color-switch" onClick={switchColorScheme}>
+			<button type="button" className="color-switch" onClick={switchColorScheme}>
 				<Icon name="moon" style="solid" label="Switch theme" />
-			</label>
+			</button>
 			{pathname === "/" || <Back />}
 			<nav className="d-lg-none">
 				<div className="d-flex">
@@ -65,7 +65,8 @@ const Header: FunctionComponent<Header.Props> = () => {
 							Tomáš Wróbel
 						</Link>
 					</div>
-					<div
+					<button
+						type="button"
 						className="toggler-menu"
 						onClick={() => setSideBar(s => (s === 250 ? -10 : 250))}
 						aria-label="Menu"
@@ -80,11 +81,7 @@ const Header: FunctionComponent<Header.Props> = () => {
 						</div>
 						<h2>Tomáš</h2>
 					</div>
-					{pathname === "/" ? (
-						<DynamicMenu />
-					) : (
-						<StaticMenu active={pathname.indexOf("/blog") ? "pages.home" : "pages.blog"} />
-					)}
+					<Menu forPath={pathname} />
 				</div>
 				<div className="nav justify-content-center social-icons">
 					<a href="https://discordapp.com/users/tomaswrobel">

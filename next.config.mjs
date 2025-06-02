@@ -6,24 +6,15 @@ export default withMDX({
 		rehypePlugins: [rehypeHighlight],
 	},
 })({
-	pageExtensions: [
-		"js",
-		"jsx",
-		"ts",
-		"tsx",
-		"md",
-		"mdx",
-	],
+	pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
 	images: {
-		qualities: [
-			100
-		]
+		qualities: [100],
 	},
 	/**
-	 * @param {import("webpack").Configuration} config 
+	 * @param {import("webpack").Configuration} config
 	 */
 	webpack(config) {
-		const fileLoaderRule = config.module.rules.find((rule) => rule?.test?.test?.('.svg'));
+		const fileLoaderRule = config.module.rules.find(rule => rule?.test?.test?.(".svg"));
 
 		config.module.rules.push(
 			// Reapply the existing rule, but only for svg imports ending in ?url
@@ -37,7 +28,7 @@ export default withMDX({
 				test: /\.svg$/i,
 				issuer: fileLoaderRule.issuer,
 				resourceQuery: {not: [...fileLoaderRule.resourceQuery.not, /url/]}, // exclude if *.svg?url
-				use: ['@svgr/webpack'],
+				use: ["@svgr/webpack"],
 			},
 		);
 

@@ -29,7 +29,7 @@ pnpm install
 │   ├── extensions.json		# Recommended extensions
 │   └── settings.json		# Workspace settings
 ├── app/
-│   ├── blog/				
+│   ├── blog/
 │   │   ├── posts/			# Blog posts in MDX format
 │   │   ├── page.tsx		# Blog page
 │   │   └── ...
@@ -45,7 +45,7 @@ pnpm install
 │   │   └── route.ts		# NGL API route
 │   ├── page.tsx			# Main page
 │   ├── sitemap.ts
-│   └── utils.ts			
+│   └── utils.ts
 ├── mdx-components.tsx		# MDX components
 ├── package.json
 ├── public/

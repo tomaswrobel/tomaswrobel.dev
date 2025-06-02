@@ -1,4 +1,4 @@
-@use "bootstrap" as * with (
+@use "./bootstrap.scss" as * with (
 	$primary: #ffaf00,
 	$line-height-lg: 1.7,
 	$line-height-sm: 1.7,
@@ -12,14 +12,14 @@
 	$btn-font-weight: 400,
 	$btn-border-width: 0px,
 	// Forms
-	$input-border-radius: 0px
+	$input-border-radius: 0px,
+	// Pagination
+	$pagination-padding-x: 0,
+	$pagination-padding-y: 0,
+	$pagination-border-width: 0
 );
 
 @use "swiper/scss";
-@use "swiper/scss/pagination";
-@use "swiper/scss/effect-fade";
-@use "owl.carousel/src/scss/core";
-
 @use "@fortawesome/fontawesome-free/scss/fontawesome.scss" as *;
 @use "@fortawesome/fontawesome-free/scss/brands.scss";
 @use "@fortawesome/fontawesome-free/scss/solid.scss";
@@ -44,22 +44,10 @@ $backgrounds: (
 	@return string.quote(map.get($fa-icons, $name));
 }
 
-@mixin light {
-	html:not([data-theme]) & {
-		@media (prefers-color-scheme: light) {
-			@content;
-		}
-	}
-
-	html[data-theme="light"] & {
-		@content;
-	}
-}
-
 @mixin theme($dark: true, $light: false) {
-	@content ($dark);
+	@content ($light);
 
-	@include light {
+	@media (prefers-color-scheme: light) {
 		@content ($light);
 	}
 }
@@ -147,22 +135,14 @@ hr {
 
 	background: $primary;
 	color: $white;
-	box-shadow: 4px 4px $white;
 
-	&:hover {
-		background: $white;
-		color: $primary;
-		box-shadow: 4px 4px $primary;
-	}
-
-	@include light {
-		&:not(:hover) {
-			box-shadow: 4px 4px $dark;
-		}
+	@include theme using ($is-dark) {
+		box-shadow: 4px 4px if($is-dark, $white, $dark);
 
 		&:hover {
-			background: $dark;
-			color: $white;
+			background: if($is-dark, $white, $dark);
+			color: if($is-dark, $primary, $white);
+			box-shadow: 4px 4px $primary;
 		}
 	}
 }
@@ -172,7 +152,7 @@ main {
 	margin-left: 250px;
 	@include background(1);
 
-	@include media-breakpoint-down(md) {
+	@include media-breakpoint-down(lg) {
 		margin: 0;
 	}
 }
@@ -313,7 +293,7 @@ aside {
 		transition: ease all 0.35s;
 	}
 
-	@include media-breakpoint-down(md) {
+	@include media-breakpoint-down(lg) {
 		z-index: $zindex-modal;
 		left: calc(var(--sidebar-offset) * 1px - 250px);
 	}
@@ -341,14 +321,16 @@ nav {
 	}
 
 	.logo-text {
-		font-weight: 600;
 		@extend %color;
+		font-weight: 600;
 		font-size: 25px;
 		line-height: 1;
+		text-decoration: none;
 	}
 }
 
 .toggler-menu {
+	border: none;
 	width: 40px;
 	height: 40px;
 	position: relative;
@@ -367,7 +349,9 @@ nav {
 		width: 25px;
 		height: 2px;
 		margin: auto;
-		box-shadow: 0px -8px 0 0px $white, 0px 8px 0 0px $white;
+		box-shadow:
+			0px -8px 0 0px $white,
+			0px 8px 0 0px $white;
 		background: $white;
 	}
 }
@@ -393,11 +377,11 @@ nav {
 
 		@include background(4);
 
-		@include media-breakpoint-down(md) {
+		@include media-breakpoint-down(lg) {
 			margin-left: 40px;
 		}
 
-		@include media-breakpoint-down(sm) {
+		@include media-breakpoint-down(md) {
 			margin-left: 25px;
 		}
 
@@ -410,7 +394,7 @@ nav {
 			font-weight: 500;
 			padding-top: 10px;
 
-			@include media-breakpoint-down(sm) {
+			@include media-breakpoint-down(md) {
 				font-size: 20px;
 			}
 		}
@@ -465,14 +449,13 @@ nav {
 .pagination .page-link {
 	border: none;
 	box-shadow: none;
-	margin: 0 5px;
-	border-radius: 50%;
-	padding: 0;
-	width: 35px;
-	height: 35px;
+	margin: 0 0.625rem;
+	width: 3rem;
+	height: 3rem;
 	text-align: center;
-	line-height: 35px;
-
+	line-height: 3rem;
+	border-radius: 50%;
+	font-size: large;
 	transition: background 0.35s;
 
 	@include theme using ($is-dark) {
@@ -521,11 +504,11 @@ nav {
 
 	@include background(1);
 
-	@include media-breakpoint-down(md) {
+	@include media-breakpoint-down(lg) {
 		padding-bottom: 80px;
 	}
 
-	@include media-breakpoint-down(sm) {
+	@include media-breakpoint-down(md) {
 		padding-bottom: 50px;
 	}
 }
@@ -544,7 +527,7 @@ nav {
 
 	@include background(1);
 
-	@include media-breakpoint-down(md) {
+	@include media-breakpoint-down(lg) {
 		padding-top: 100px;
 		padding-bottom: 40px;
 	}
@@ -663,53 +646,14 @@ article {
 	}
 }
 
-.color-switch,
-.back-link {
-	position: fixed;
-	right: 0;
-	width: 50px;
-	height: 50px;
-	line-height: 50px;
-	text-align: center;
-	font-size: 25px;
-	z-index: $zindex-popover;
-	cursor: pointer;
-
-	@include theme using ($is-dark) {
-		background: if($is-dark, $white, $dark);
-		color: if($is-dark, $dark, $white);
-	}
-
-	border-radius: 100%;
-	transform: translate(-12.5%);
-}
-
-.color-switch {
-	top: 35px;
-
-	@include media-breakpoint-down(md) {
-		top: 65px;
-		right: 5px;
-	}
-}
-
-.back-link {
-	top: 95px;
-
-	@include media-breakpoint-down(md) {
-		top: 125px;
-		right: 5px;
-	}
-}
-
 section:not(:first-of-type) {
-	@extend .py-3;
+	padding: $spacer 0;
 }
 
 .title {
 	padding: 40px 0;
 
-	@include media-breakpoint-down(sm) {
+	@include media-breakpoint-down(md) {
 		padding: 30px 0;
 	}
 
@@ -727,7 +671,7 @@ section:not(:first-of-type) {
 		text-transform: uppercase;
 		letter-spacing: 6px;
 
-		@include media-breakpoint-down(sm) {
+		@include media-breakpoint-down(md) {
 			letter-spacing: 2px;
 		}
 
@@ -740,8 +684,8 @@ section:not(:first-of-type) {
 			left: 56px;
 			right: 0;
 			z-index: -1;
-
-			@extend .rounded-circle, .bg-primary;
+			background-color: $primary;
+			border-radius: 50%;
 		}
 
 		&::before {
@@ -752,8 +696,7 @@ section:not(:first-of-type) {
 			right: 0;
 			width: 60px;
 			height: 1px;
-
-			@extend .bg-primary;
+			background-color: $primary;
 		}
 	}
 }
@@ -779,7 +722,7 @@ section:not(:first-of-type) {
 		}
 	}
 
-	@include media-breakpoint-down(sm) {
+	@include media-breakpoint-down(md) {
 		padding-top: 60px;
 		padding-bottom: 60px;
 	}
@@ -792,7 +735,7 @@ section:not(:first-of-type) {
 
 	&:after {
 		content: "";
-		@extend .rounded-circle;
+		border-radius: 50%;
 
 		position: absolute;
 		right: -20vh;
@@ -831,7 +774,7 @@ section:not(:first-of-type) {
 			font-weight: 500;
 			margin: 0 0 20px;
 
-			@include media-breakpoint-down(sm) {
+			@include media-breakpoint-down(md) {
 				font-size: 18px;
 				margin: 0 0 10px;
 			}
@@ -844,11 +787,11 @@ section:not(:first-of-type) {
 			margin: 0 0 20px;
 			@extend %color;
 
-			@include media-breakpoint-down(lg) {
+			@include media-breakpoint-down(xl) {
 				font-size: 70px;
 			}
 
-			@include media-breakpoint-down(sm) {
+			@include media-breakpoint-down(md) {
 				font-size: 45px;
 				margin-bottom: 15px;
 			}
@@ -859,7 +802,7 @@ section:not(:first-of-type) {
 			font-size: 18px;
 			@extend %color, .mb-4;
 
-			@include media-breakpoint-down(sm) {
+			@include media-breakpoint-down(md) {
 				font-size: 16px;
 				margin-bottom: 15px;
 			}
@@ -869,7 +812,7 @@ section:not(:first-of-type) {
 			max-width: 450px;
 			font-size: 18px;
 
-			@include media-breakpoint-down(sm) {
+			@include media-breakpoint-down(md) {
 				font-size: 16px;
 			}
 		}
@@ -881,24 +824,8 @@ section:not(:first-of-type) {
 }
 
 .about-me {
-	@include media-breakpoint-down(md) {
+	@include media-breakpoint-down(lg) {
 		margin-bottom: 40px;
-	}
-
-	.info {
-		text-align: center;
-		padding-top: 40px;
-		@extend %color;
-
-		h3 {
-			font-weight: 500;
-			font-size: 30px;
-		}
-
-		p {
-			margin: 0;
-			font-size: 16px;
-		}
 	}
 
 	.social-icons {
@@ -954,11 +881,11 @@ section:not(:first-of-type) {
 		border-radius: 0.3em;
 		tab-size: 4;
 
-		@include media-breakpoint-down(sm) {
+		@include media-breakpoint-down(md) {
 			tab-size: 2;
 		}
 
-		@include media-breakpoint-down(sm) {
+		@include media-breakpoint-down(md) {
 			font-size: 0.75em !important;
 		}
 
@@ -979,6 +906,10 @@ section:not(:first-of-type) {
 .about-info {
 	@include media-breakpoint-up(lg) {
 		padding-left: 50px;
+	}
+
+	.title {
+		padding-top: 0;
 	}
 
 	h3 {
@@ -1029,12 +960,20 @@ section:not(:first-of-type) {
 	padding: 40px;
 	overflow: hidden;
 	z-index: 1;
-	background: $dark;
-	color: $white;
 	transition: ease background 0.35s;
 	display: flex;
 
-	@include media-breakpoint-down(md) {
+	@include theme using ($is-dark) {
+		@if $is-dark {
+			background: $dark;
+			color: $white;
+		} @else {
+			background: $light;
+			color: $dark;
+		}
+	}
+
+	@include media-breakpoint-down(lg) {
 		padding: 20px;
 	}
 
@@ -1050,7 +989,7 @@ section:not(:first-of-type) {
 		padding-left: 25px;
 		flex-grow: 1;
 
-		@include media-breakpoint-down(md) {
+		@include media-breakpoint-down(lg) {
 			padding-left: 15px;
 		}
 	}
@@ -1064,14 +1003,7 @@ section:not(:first-of-type) {
 	}
 
 	&:hover {
-		@extend .bg-primary;
-	}
-
-	@include light {
-		&:not(:hover) {
-			background: $light;
-			color: $dark;
-		}
+		background-color: $primary;
 	}
 }
 
@@ -1093,7 +1025,7 @@ section:not(:first-of-type) {
 		height: 100px;
 		overflow: hidden;
 
-		@include media-breakpoint-down(sm) {
+		@include media-breakpoint-down(md) {
 			width: 50px;
 			height: 50px;
 		}
@@ -1102,7 +1034,7 @@ section:not(:first-of-type) {
 	.media-body {
 		padding-left: 25px;
 
-		@include media-breakpoint-down(sm) {
+		@include media-breakpoint-down(md) {
 			padding-left: 15px;
 		}
 	}
@@ -1124,22 +1056,18 @@ section:not(:first-of-type) {
 	margin-top: 15px;
 
 	@include background(4);
-}
 
-input[name="mobile"] {
-	display: none;
-}
+	> div {
+		padding: 35px;
 
-.resume-row {
-	padding: 35px;
+		@include media-breakpoint-down(lg) {
+			padding: 20px;
+		}
 
-	@include media-breakpoint-down(md) {
-		padding: 20px;
-	}
-
-	+ .resume-row {
-		@include theme($white, $dark) using ($color) {
-			border-top: 1px solid color.change($color, $alpha: 0.05);
+		+ div {
+			@include theme($white, $dark) using ($color) {
+				border-top: 1px solid color.change($color, $alpha: 0.05);
+			}
 		}
 	}
 
@@ -1147,9 +1075,10 @@ input[name="mobile"] {
 		@extend %color;
 		font-weight: 500;
 		font-size: 20px;
+		margin-bottom: 5px;
 	}
 
-	.rb-left {
+	&-left {
 		min-height: 100%;
 		text-align: center;
 
@@ -1159,18 +1088,19 @@ input[name="mobile"] {
 			}
 		}
 
-		@include media-breakpoint-down(sm) {
+		@include media-breakpoint-down(md) {
 			margin-bottom: 25px;
 			text-align: left;
 
-			img, svg {
+			img,
+			svg {
 				width: 100px;
 				height: 100px;
 			}
 		}
 	}
 
-	.rb-time {
+	&-time {
 		display: inline-block;
 		padding: 5px 10px;
 		color: $white;
@@ -1183,33 +1113,34 @@ input[name="mobile"] {
 		top: 0;
 		right: 0;
 
-		@include media-breakpoint-down(sm) {
+		@include media-breakpoint-down(md) {
 			position: relative;
 			margin-bottom: 14px;
 			vertical-align: top;
 		}
 	}
 
-	h4 {
-		margin-bottom: 5px;
-	}
-
-	label {
+	&-label {
 		font-size: 13px;
 		margin-bottom: 12px;
+		display: inline-block;
 
-		@include media-breakpoint-down(sm) {
+		@include media-breakpoint-down(md) {
 			width: 100%;
 			margin-bottom: 6px;
 		}
 	}
 
-	.rb-right p {
-		margin-bottom: 0;
-		max-width: 80%;
+	&-right {
+		position: relative;
 
-		@include media-breakpoint-down(sm) {
-			max-width: 100%;
+		p {
+			margin-bottom: 0;
+			max-width: 80%;
+
+			@include media-breakpoint-down(md) {
+				max-width: 100%;
+			}
 		}
 	}
 }
@@ -1231,7 +1162,7 @@ input[name="mobile"] {
 	span {
 		width: 14px;
 		height: 14px;
-		@extend .rounded-circle;
+		border-radius: 50%;
 		background: $primary;
 		position: absolute;
 		right: -1px;
@@ -1277,7 +1208,7 @@ input[name="mobile"] {
 
 	@include background(4);
 
-	@include media-breakpoint-down(md) {
+	@include media-breakpoint-down(lg) {
 		margin-bottom: 10px;
 	}
 
@@ -1329,7 +1260,7 @@ input[name="mobile"] {
 
 	@include background(4);
 
-	@include media-breakpoint-down(md) {
+	@include media-breakpoint-down(lg) {
 		margin-bottom: 20px;
 	}
 
@@ -1381,7 +1312,7 @@ p.note {
 
 	@include background(4);
 
-	@include media-breakpoint-down(md) {
+	@include media-breakpoint-down(lg) {
 		margin-bottom: 20px;
 	}
 
@@ -1410,39 +1341,6 @@ p.note {
 	margin-bottom: 20px;
 }
 
-.img-fluid {
-	max-width: 100%;
-	height: auto;
-
-	display: block;
-	margin: 0 auto;
-}
-
-.google-map {
-	margin-top: 50px;
-
-	@include light {
-		border: 5px solid $white;
-	}
-
-	@include media-breakpoint-down(sm) {
-		margin-top: 15px;
-	}
-
-	.embed-responsive-21by9 {
-		filter: grayscale(1);
-		-webkit-filter: grayscale(1);
-
-		&:before {
-			padding-top: 30%;
-
-			@include media-breakpoint-down(sm) {
-				padding-top: 55%;
-			}
-		}
-	}
-}
-
 .swiper-dots {
 	text-align: center;
 	margin-top: 1em;
@@ -1453,21 +1351,20 @@ p.note {
 		width: 10px;
 		height: 10px;
 		background: transparent;
-		border: 1px solid $white;
 		transition: ease all 0.55s;
-		@extend .rounded-circle;
 		margin: 0 5px;
+		opacity: 0.2;
 
-		&-active {
-			background-color: $white;
-		}
-
-		@include light {
-			border-color: $dark;
+		@include theme($white, $dark) using ($color) {
+			border: 1px solid $color;
 
 			&-active {
-				background-color: $dark;
+				background: $color;
 			}
+		}
+
+		&-active {
+			opacity: 1;
 		}
 	}
 }

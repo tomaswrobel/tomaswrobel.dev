@@ -10,7 +10,7 @@ export const BlogListing: FunctionComponent<BlogListing.Props> = ({data, sort = 
 	const [active, setActive] = useState(1);
 	const state = useMemo(
 		() => Array.from({length: Math.ceil(data.length / sort)}).map((_, idx) => idx + 1),
-		[sort, data.length]
+		[sort, data.length],
 	);
 
 	useEffect(() => {
@@ -34,14 +34,18 @@ export const BlogListing: FunctionComponent<BlogListing.Props> = ({data, sort = 
 						<div className="col-md-6 mt-1 pb-1 blog-list-item" key={id}>
 							<div className="blog-grid">
 								<div className="blog-img">
-									<Link href={url} aria-label={name}>
+									<Link href={url}>
+										{/* For aria purposes */}
+										<span className="pointer-events-none absolute overflow-hidden opacity-0">
+											{name}
+										</span>
 										<Image
 											draggable={false}
 											loading="lazy"
 											placeholder="blur"
 											src={img}
 											title=""
-											alt=""
+											alt={name}
 											style={{maxWidth: "100%"}}
 										/>
 									</Link>
@@ -73,6 +77,7 @@ export const BlogListing: FunctionComponent<BlogListing.Props> = ({data, sort = 
 											setActive(active - 1);
 										}
 									}}
+									aria-label="Zobrazit předchozí stránku"
 								>
 									<i className="fas fa-chevron-left" />
 								</a>
@@ -84,6 +89,7 @@ export const BlogListing: FunctionComponent<BlogListing.Props> = ({data, sort = 
 											active: active === state,
 										})}
 										target="_self"
+										aria-label={"Zobrazit stránku čéslo " + state}
 										href={`#${state}`}
 										onClick={setActive.bind(null, state)}
 									>
@@ -102,6 +108,7 @@ export const BlogListing: FunctionComponent<BlogListing.Props> = ({data, sort = 
 											setActive(active + 1);
 										}
 									}}
+									aria-label="Zobrazit další stránku"
 								>
 									<i className="fas fa-chevron-right" />
 								</a>
