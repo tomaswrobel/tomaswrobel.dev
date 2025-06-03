@@ -71,7 +71,7 @@ const HomePage: FunctionComponent = async () => (
 				<div className="col-lg-6 mt-1 pb-1">
 					<div className="about-info">
 						<h3>
-							Programátor se <Icon name="heart" style="solid" label="Love" /> pro web
+							Programátor se <Icon name="heart" style="solid" label="srdcem" /> pro web
 						</h3>
 						<p>
 							Hello World v Javě jsem napsal, když mi bylo 11. Již ve 12 jsem přičichl k webu. Ve volném
