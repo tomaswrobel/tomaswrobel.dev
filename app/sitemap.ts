@@ -1,5 +1,5 @@
 import type {MetadataRoute} from "next";
-import {data} from "components/blog";
+import {data} from "./components/blog";
 
 type Sitemaps = Promise<MetadataRoute.Sitemap>;
 type Sitemap = MetadataRoute.Sitemap[number];

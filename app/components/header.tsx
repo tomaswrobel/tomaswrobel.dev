@@ -1,12 +1,11 @@
 "use client";
 import Link from "next/link";
-import {usePathname} from "next/navigation";
-import Menu from "components/menu";
+import {usePathname, useRouter} from "next/navigation";
+import Menu from "./menu";
 import {type FunctionComponent, useEffect, useState} from "react";
 import Me from "../images/me.png";
 import Icon from "./fa-icon";
 import Image from "next/image";
-import Back from "./back";
 
 function switchColorScheme() {
 	const {dataset} = document.documentElement;
@@ -24,6 +23,7 @@ function switchColorScheme() {
 const Header: FunctionComponent<Header.Props> = () => {
 	const [sidebarOffset, setSideBar] = useState(-10);
 	const pathname = usePathname();
+	const router = useRouter();
 
 	useEffect(() => {
 		function touchStart(e: TouchEvent) {
@@ -54,10 +54,16 @@ const Header: FunctionComponent<Header.Props> = () => {
 
 	return (
 		<header style={{"--sidebar-offset": sidebarOffset}}>
-			<button type="button" className="color-switch" onClick={switchColorScheme}>
-				<Icon name="moon" style="solid" label="Switch theme" />
-			</button>
-			{pathname === "/" || <Back />}
+			<div className="button-group p-4">
+				<button type="button" onClick={switchColorScheme}>
+					<Icon name="moon" style="solid" label="Switch theme" />
+				</button>
+				{pathname === "/" || (
+					<button type="button" onClick={() => router.back()}>
+						<Icon name="arrow-left" style="solid" label="Go back" />
+					</button>
+				)}
+			</div>
 			<nav className="d-lg-none">
 				<div className="d-flex">
 					<div className="navbar-brand">

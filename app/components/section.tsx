@@ -1,5 +1,5 @@
 import type {FunctionComponent, ReactNode} from "react";
-import {array} from "utils";
+import {array} from "../utils";
 
 export const sections = array(
 	["pages.home", "Domů"],

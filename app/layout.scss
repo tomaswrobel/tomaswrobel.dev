@@ -45,7 +45,7 @@ $backgrounds: (
 }
 
 @mixin theme($dark: true, $light: false) {
-	@content ($light);
+	@content ($dark);
 
 	@media (prefers-color-scheme: light) {
 		@content ($light);
@@ -144,6 +144,30 @@ hr {
 			color: if($is-dark, $primary, $white);
 			box-shadow: 4px 4px $primary;
 		}
+	}
+}
+
+header .button-group {
+	display: flex;
+	flex-direction: column;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 500;
+	gap: 16px;
+
+	button {
+		border: 0;
+		width: 50px;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		font-size: 25px;
+		z-index: 1060;
+		cursor: pointer;
+		background: #fff;
+		color: #0b0b13;
+		border-radius: 100%;
 	}
 }
 
@@ -288,10 +312,7 @@ aside {
 		}
 	}
 
-	&[data-offset="-10"],
-	&[data-offset="250"] {
-		transition: ease all 0.35s;
-	}
+	transition: ease left 0.35s;
 
 	@include media-breakpoint-down(lg) {
 		z-index: $zindex-modal;
@@ -1354,6 +1375,7 @@ p.note {
 		transition: ease all 0.55s;
 		margin: 0 5px;
 		opacity: 0.2;
+		border-radius: 100%;
 
 		@include theme($white, $dark) using ($color) {
 			border: 1px solid $color;

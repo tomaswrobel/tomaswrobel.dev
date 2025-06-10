@@ -13,7 +13,6 @@
 		"isolatedModules": true,
 		"jsx": "preserve",
 		"incremental": true,
-		"baseUrl": "./app",
 		"plugins": [
 			{
 				"name": "next"
@@ -23,10 +22,21 @@
 			"next",
 			"next/image-types/global",
 		],
-		"lib": ["dom", "dom.iterable", "esnext"]
+		"lib": [
+			"dom",
+			"dom.iterable",
+			"esnext"
+		]
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-	"exclude": ["node_modules"],
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		".next/types/**/*.ts"
+	],
+	"exclude": [
+		"node_modules"
+	],
 	"mdx": {
 		"checkMdx": true
 	}

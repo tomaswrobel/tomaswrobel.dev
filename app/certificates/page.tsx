@@ -1,6 +1,6 @@
 import type {Metadata} from "next";
-import BlogListing from "components/blog-listing";
-import {data} from "components/blog";
+import BlogListing from "../components/blog-listing";
+import {data} from "../components/blog";
 
 export const metadata: Metadata = {
 	title: "Tomáš Wróbel | Certifikáty",

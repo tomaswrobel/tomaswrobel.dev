@@ -1,6 +1,6 @@
-import BlogSingle from "components/blog-single";
+import BlogSingle from "../../components/blog-single";
 import type {Metadata} from "next/types";
-import type {Props, FrontMatter} from "components/blog";
+import type {Props, FrontMatter} from "../../components/blog";
 
 export const dynamicParams = false;
 

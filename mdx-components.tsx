@@ -1,6 +1,6 @@
 import type {MDXComponents} from "mdx/types";
-import Icon from "components/fa-icon";
-import Button from "components/button";
+import Icon from "./app/components/fa-icon";
+import Button from "./app/components/button";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
 	return {

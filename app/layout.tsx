@@ -1,6 +1,6 @@
 import type {FunctionComponent, PropsWithChildren} from "react";
 import local from "next/font/local";
-import Header from "components/header";
+import Header from "./components/header";
 
 import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
 import "@fortawesome/fontawesome-free/scss/brands.scss";
@@ -11,11 +11,11 @@ import "./layout.scss";
 const rubik = local({
 	src: [
 		{
-			path: "fonts/Rubik-Italic-VariableFont_wght.ttf",
+			path: "./fonts/Rubik-Italic-VariableFont_wght.ttf",
 			style: "italic",
 		},
 		{
-			path: "fonts/Rubik-VariableFont_wght.ttf",
+			path: "./fonts/Rubik-VariableFont_wght.ttf",
 			style: "normal",
 		},
 	],

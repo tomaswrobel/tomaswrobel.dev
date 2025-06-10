@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type {FunctionComponent} from "react";
-import {formatter} from "utils";
+import {formatter} from "../utils";
 import type {MDX} from "./blog";
 import * as authors from "./blog-authors";
 import Icon from "./fa-icon";

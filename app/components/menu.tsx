@@ -30,7 +30,7 @@ const Menu: FunctionComponent<{forPath: string}> = ({forPath}) => {
 				window.removeEventListener("scroll", scroll);
 			};
 		} else {
-			setActive(forPath.slice(1));
+			setActive(forPath.split("/")[1]);
 		}
 	}, [forPath]);
 

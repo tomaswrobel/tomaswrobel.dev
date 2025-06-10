@@ -1,23 +1,22 @@
 import type {Metadata} from "next";
-import type {FunctionComponent} from "react";
-
-import Link from "next/link";
-import Form from "components/ngl";
-import {Section} from "components/section";
-import TypingAnimation from "components/typing-animation";
-import CertificatesSwiper from "components/certificates-swiper";
-import Icon from "components/fa-icon";
-import Skill from "components/skill";
 import Image from "next/image";
-import {formatter} from "utils";
-import {data} from "components/blog";
-import Button from "components/button";
-import Code from "components/code.mdx";
-import Intro from "./images/intro.webp";
+import Link from "next/link";
+import type {FunctionComponent} from "react";
+import {data} from "./components/blog";
+import Button from "./components/button";
+import CertificatesSwiper from "./components/certificates-swiper";
+import Code from "./components/code.mdx";
+import Icon from "./components/fa-icon";
+import Form from "./components/ngl";
+import {Resume, ResumeImage, ResumeText} from "./components/resume";
+import {Section} from "./components/section";
+import Skill from "./components/skill";
+import TypingAnimation from "./components/typing-animation";
 import Doucse from "./images/doucse.webp";
+import Fastest from "./images/fastest";
+import Intro from "./images/intro.webp";
 import Wigym from "./images/wigym.webp";
-import Fastest from "./images/fastest.svg";
-import {Resume, ResumeImage, ResumeText} from "components/resume";
+import {formatter} from "./utils";
 
 export const metadata: Metadata = {
 	title: "Tomáš Wróbel | Domovská stránka",
@@ -104,7 +103,7 @@ const HomePage: FunctionComponent = async () => (
 						<a href="https://wigym.cz" target="_blank">
 							Wichterlově gymnáziu
 						</a>{" "}
-						, které mi dalo solidní základy ve všeobecném vzdělání. Studium jsem ukončil v červnu 2025.
+						, které mi dalo solidní základy ve všeobecném vzdělání. Studia jsem zanechal v červnu 2025 ve prospěch kariéry.
 					</ResumeText>
 				</Resume>
 				<Resume>
@@ -117,7 +116,7 @@ const HomePage: FunctionComponent = async () => (
 						Byl jsem lektorem příjimacích zkoušek u{" "}
 						<a href="https://www.doucse.cz" target="_blank">
 							Vzdělávacího centra Doučse, z. s.
-						</a>{" "}
+						</a>
 						, a to ve školním roce 2024/2025. Doučoval jsem studenty, kteří se připravovali na přijímací
 						zkoušky na gymnázia, v menší míře i na jiné střední školy. Doučování probíhalo online, přesto se
 						žákům vesměs dařilo

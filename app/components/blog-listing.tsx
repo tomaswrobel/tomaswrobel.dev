@@ -3,7 +3,7 @@ import clsx from "clsx";
 import Link from "next/link";
 import Image from "next/image";
 import {FunctionComponent, useEffect, useMemo, useState} from "react";
-import {formatter} from "utils";
+import {formatter} from "../utils";
 import {Data} from "./blog";
 
 export const BlogListing: FunctionComponent<BlogListing.Props> = ({data, sort = 4, heading}) => {
