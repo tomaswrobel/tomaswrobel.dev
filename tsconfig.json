@@ -18,10 +18,6 @@
 				"name": "next"
 			}
 		],
-		"types": [
-			"next",
-			"next/image-types/global",
-		],
 		"lib": [
 			"dom",
 			"dom.iterable",
